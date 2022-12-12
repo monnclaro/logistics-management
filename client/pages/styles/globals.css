@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply overflow-x-hidden bg-[#212124] font-Inter;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-image: transparent;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-image: linear-gradient(#e24a8d 36.97%, #e24a8d 64.97%);
+}
