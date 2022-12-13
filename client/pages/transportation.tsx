@@ -117,7 +117,7 @@ export default function Transportation() {
                 </div>
                 <input
                   type="text"
-                  className="block w-auto rounded-lg border border-zinc-600 bg-[#252527] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#E24A8D] focus:outline-none focus:ring-1 focus:ring-[#E24A8D] sm:text-sm"
+                  className="block w-auto rounded-lg border border-zinc-600 bg-[#212124] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#c6ace3] focus:outline-none focus:ring-1 focus:ring-[#c6ace3] sm:text-sm"
                   placeholder="Search deliveries"
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -269,7 +269,7 @@ export default function Transportation() {
                 <div className="pt-[30px]">
                   <button
                     type="submit"
-                    className="flex h-[30px] w-[80px] items-center justify-center gap-1 rounded-lg border border-zinc-500 bg-[#252527] pt-0 text-sm  font-bold text-gray-400 duration-700 hover:border-[#E24A8D] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#E24A8D] hover:transition-colors"
+                    className="flex h-[30px] w-[80px] items-center justify-center gap-1 rounded-lg border border-zinc-500 bg-[#212124] pt-0 text-sm  font-bold text-gray-400 duration-700 hover:border-[#c6ace3] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#c6ace3] hover:transition-colors"
                   >
                     <PlusIcon className="relative h-5 w-5 cursor-pointer text-white" />
                   </button>
@@ -280,7 +280,7 @@ export default function Transportation() {
 
           <div className="relative h-[470px] overflow-y-scroll shadow-lg sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-400  ">
-              <thead className="bg-zinc-900 text-xs uppercase text-white ">
+              <thead className="bg-[#18181B] text-xs uppercase text-white ">
                 <tr>
                   <th scope="col" className="py-3 px-6">
                     Del. number
@@ -323,7 +323,7 @@ export default function Transportation() {
                   .map((items) => {
                     return (
                       <tr
-                        className="border-b border-zinc-700 bg-[#252527] hover:bg-zinc-700"
+                        className="border-b border-zinc-700 bg-[#222227] hover:bg-zinc-700"
                         key={items.id}
                       >
                         <th
@@ -344,7 +344,7 @@ export default function Transportation() {
                         <td className="py-4 px-6 text-right">
                           <button
                             onClick={() => handleDelete(items.id)}
-                            className="font-medium text-[#E24A8D] hover:underline"
+                            className="font-medium text-[#c6ace3] hover:underline"
                           >
                             Delete
                           </button>

@@ -11,7 +11,6 @@ import {
   MagnifyingGlassIcon,
   PlusIcon,
 } from "@heroicons/react/24/outline";
-//import MyModal from "./components/Modal";
 
 type DataProps = {
   id: string;
@@ -61,7 +60,7 @@ export default function Warehouse() {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <div className="fixed inset-0  bg-black bg-opacity-25" />
+              <div className="fixed inset-0 bg-black bg-opacity-5" />
             </Transition.Child>
 
             <div className="fixed inset-0 overflow-y-auto">
@@ -75,7 +74,7 @@ export default function Warehouse() {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full max-w-sm transform overflow-hidden rounded-2xl bg-[#222227] p-6 text-center align-middle shadow-xl transition-all">
+                  <Dialog.Panel className="w-full max-w-sm transform overflow-hidden rounded-2xl bg-[#222227] p-6 text-center align-middle shadow-md transition-all">
                     <Dialog.Title className="text-lg font-medium leading-6 text-white">
                       Item deleted
                     </Dialog.Title>
@@ -88,7 +87,7 @@ export default function Warehouse() {
                     <div className="mt-4">
                       <button
                         type="button"
-                        className="inline-flex justify-center rounded-md border border-zinc-500 bg-[#222227] px-4 py-2 text-sm font-medium text-white hover:border-[#E24A8D] hover:outline-none hover:ring-1 hover:ring-[#E24A8D]"
+                        className="inline-flex justify-center rounded-md border border-zinc-500 bg-[#222227] px-4 py-2 text-sm font-medium text-white hover:border-[#c6ace3] hover:outline-none hover:ring-1 hover:ring-[#c6ace3]"
                         onClick={closeModal}
                       >
                         Got it, thanks!
@@ -206,7 +205,7 @@ export default function Warehouse() {
                 </div>
                 <input
                   type="text"
-                  className="block w-auto rounded-lg border border-zinc-600 bg-[#252527] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#E24A8D] focus:outline-none focus:ring-1 focus:ring-[#E24A8D] sm:text-sm"
+                  className="block w-auto rounded-lg border border-zinc-600 bg-[#212124] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#E24A8D] focus:outline-none focus:ring-1 focus:ring-[#E24A8D] sm:text-sm"
                   placeholder="Search products"
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -305,7 +304,7 @@ export default function Warehouse() {
               <div className="pt-[30px]">
                 <button
                   type="submit"
-                  className="flex h-[30px] w-[80px] items-center justify-center gap-1 rounded-lg border border-zinc-500 bg-[#252527] pt-0 text-sm  font-bold text-gray-400 duration-700 hover:border-[#E24A8D] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#E24A8D] hover:transition-colors"
+                  className="flex h-[30px] w-[80px] items-center justify-center gap-1 rounded-lg border border-zinc-500 bg-[#252527] pt-0 text-sm  font-bold text-gray-400 duration-700 hover:border-[#c6ace3] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#c6ace3] hover:transition-colors"
                 >
                   <PlusIcon className="relative h-5 w-5 cursor-pointer text-white" />
                 </button>
@@ -315,13 +314,13 @@ export default function Warehouse() {
             <div className="grid h-24 grid-cols-2 bg-[#252527] text-center text-white">
               <section className="max-w-[194px] border-[1px] border-zinc-600 px-16 py-6 text-xs font-bold uppercase shadow-sm">
                 <p>Products</p>
-                <p className="text-xl font-bold text-[#E24A8D]">
+                <p className="text-xl font-bold text-[#c6ace3]">
                   {count?.count}
                 </p>
               </section>
               <section className="max-w-[194px] border-[1px] border-zinc-600 p-6  px-16 text-xs font-bold uppercase shadow-sm">
                 <p>Limit</p>
-                <p className="text-xl font-bold text-[#E24A8D]">250</p>
+                <p className="text-xl font-bold text-[#c6ace3]">250</p>
               </section>
             </div>
           </div>
@@ -361,7 +360,7 @@ export default function Warehouse() {
                   .map((products) => {
                     return (
                       <tr
-                        className="border-b border-zinc-700 bg-[#252527] hover:bg-zinc-700"
+                        className="border-b border-zinc-700 bg-[#222227] hover:bg-zinc-700"
                         key={products.id}
                       >
                         <th
@@ -376,14 +375,14 @@ export default function Warehouse() {
                         <td className="py-4 px-6">{products.pickingStatus}</td>
 
                         <td className="py-4 px-6 text-right">
-                          <button className="pr-1 font-medium text-[#E24A8D] hover:underline">
+                          <button className="pr-1 font-medium text-[#c6ace3] hover:underline">
                             Edit
                           </button>
                           <>
                             <DeleteModal />
                             <button
                               onClick={() => handleDelete(products.id)}
-                              className="pl-1 font-medium text-[#E24A8D] hover:underline"
+                              className="pl-1 font-medium text-[#c6ace3] hover:underline"
                             >
                               Delete
                             </button>

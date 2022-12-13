@@ -30,7 +30,7 @@ export default function Home() {
           <div className="flex gap-x-12 gap-y-4">
             <Link
               href="/transportation"
-              className="block max-h-[400px] max-w-sm rounded-lg border border-zinc-600 bg-[#252527] p-6 shadow-md transition-all duration-200 hover:scale-105 hover:border-[#E24A8D] hover:shadow-sm hover:shadow-[#E24A8D]"
+              className="block max-h-[400px] max-w-sm rounded-lg border border-zinc-600 bg-[#212124] p-6 shadow-md transition-all duration-200 hover:scale-105 hover:border-[#c6ace3] hover:shadow-sm hover:shadow-[#c6ace3]"
             >
               <div className="flex gap-3">
                 <h5 className="mb-2 text-xl font-bold tracking-tight text-white">
@@ -46,7 +46,7 @@ export default function Home() {
             </Link>
             <Link
               href="/warehouse"
-              className="block max-h-[400px] max-w-sm rounded-lg border border-zinc-600 bg-[#252527] p-6 shadow-md  transition-all duration-200 hover:scale-105 hover:border-[#E24A8D] hover:shadow-sm hover:shadow-[#E24A8D]"
+              className="block max-h-[400px] max-w-sm rounded-lg border border-zinc-600 bg-[#212124] p-6 shadow-md transition-all duration-200 hover:scale-105 hover:border-[#c6ace3] hover:shadow-sm hover:shadow-[#c6ace3]"
             >
               <div className="flex gap-3">
                 <h5 className="mb-2 text-xl font-bold tracking-tight text-white">
