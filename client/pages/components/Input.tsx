@@ -7,7 +7,7 @@ export function Input(props: InputProps) {
     <input
       {...props}
       required
-      className="block w-auto rounded-lg border border-zinc-700 bg-[#0d1117] p-2.5 pl-4 text-sm  text-white placeholder-gray-400 focus:border-[#f78166] focus:outline-none focus:ring-1 focus:ring-[#f78166] sm:text-sm"
+      className="block w-auto rounded-lg border border-zinc-700 bg-[#0d1117] p-2 pl-4  text-sm text-white placeholder-gray-400 focus:border-[#1f61fb] focus:outline-none focus:ring-1 focus:ring-[#1f61fb] sm:text-sm"
     />
   );
 }

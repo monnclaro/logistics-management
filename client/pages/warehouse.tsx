@@ -74,7 +74,7 @@ export default function Warehouse() {
                   leaveFrom="opacity-100 scale-100"
                   leaveTo="opacity-0 scale-95"
                 >
-                  <Dialog.Panel className="w-full max-w-sm transform overflow-hidden rounded-2xl bg-[#222227] p-6 text-center align-middle shadow-md transition-all">
+                  <Dialog.Panel className="w-full max-w-sm transform overflow-hidden rounded-2xl border border-zinc-800 bg-[#0d1117] p-6 text-center align-middle shadow-md transition-all">
                     <Dialog.Title className="text-lg font-medium leading-6 text-white">
                       Item deleted
                     </Dialog.Title>
@@ -87,7 +87,7 @@ export default function Warehouse() {
                     <div className="mt-4">
                       <button
                         type="button"
-                        className="inline-flex justify-center rounded-md border border-zinc-500 bg-[#222227] px-4 py-2 text-sm font-medium text-white hover:border-[#c6ace3] hover:outline-none hover:ring-1 hover:ring-[#c6ace3]"
+                        className="inline-flex justify-center rounded-md border border-zinc-700 bg-[#0d1117] px-4 py-2 text-sm font-medium text-white hover:border-[#1f61fb] hover:outline-none hover:ring-1 hover:ring-[#1f61fb]"
                         onClick={closeModal}
                       >
                         Got it, thanks!
@@ -205,7 +205,7 @@ export default function Warehouse() {
                 </div>
                 <input
                   type="text"
-                  className="block w-auto rounded-lg border border-zinc-600 bg-[#212124] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#E24A8D] focus:outline-none focus:ring-1 focus:ring-[#E24A8D] sm:text-sm"
+                  className="block w-auto rounded-lg border border-zinc-700 bg-[#0d1117] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#1f61fb] focus:outline-none focus:ring-1 focus:ring-[#1f61fb] sm:text-sm"
                   placeholder="Search products"
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -301,32 +301,33 @@ export default function Warehouse() {
                   required
                 />
               </div>
-              <div className="pt-[30px]">
+              <div className="pt-[28px]">
                 <button
                   type="submit"
-                  className="flex h-[30px] w-[80px] items-center justify-center gap-1 rounded-lg border border-zinc-500 bg-[#252527] pt-0 text-sm  font-bold text-gray-400 duration-700 hover:border-[#c6ace3] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#c6ace3] hover:transition-colors"
+                  className="flex h-[30px] w-[80px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm  font-bold text-gray-400 duration-700 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors"
                 >
                   <PlusIcon className="relative h-5 w-5 cursor-pointer text-white" />
                 </button>
               </div>
             </form>
 
-            <div className="grid h-24 grid-cols-2 bg-[#252527] text-center text-white">
-              <section className="max-w-[194px] border-[1px] border-zinc-600 px-16 py-6 text-xs font-bold uppercase shadow-sm">
+            <div className="grid h-24 grid-cols-2 bg-[#161b22] text-center text-white">
+              <section className="max-w-[194px] border-[1px] border-zinc-700 px-16 py-6 text-xs font-bold uppercase shadow-sm">
                 <p>Products</p>
-                <p className="text-xl font-bold text-[#58A6FF]">
+                <p className="text-xl font-bold text-[#f78166]">
                   {count?.count}
                 </p>
               </section>
-              <section className="max-w-[194px] border-[1px] border-zinc-600 p-6  px-16 text-xs font-bold uppercase shadow-sm">
+              <section className="max-w-[194px] border-[1px] border-zinc-700 p-6  px-16 text-xs font-bold uppercase shadow-sm">
                 <p>Limit</p>
-                <p className="text-xl font-bold text-[#58A6FF]">250</p>
+                <p className="text-xl font-bold text-[#f78166]">250</p>
               </section>
             </div>
           </div>
+
           <div className="relative h-[470px] overflow-y-scroll shadow-lg transition-all sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-              <thead className="bg-[#161b22] text-xs uppercase text-white ">
+              <thead className="bg-[#12151b] text-xs font-bold uppercase text-white">
                 <tr>
                   <th scope="col" className="py-3 px-6">
                     Product name
@@ -360,7 +361,7 @@ export default function Warehouse() {
                   .map((products) => {
                     return (
                       <tr
-                        className="border-b border-zinc-700 bg-[#222227] hover:bg-zinc-700"
+                        className="border-b border-zinc-700 bg-[#161b22] hover:bg-[#262e3a]"
                         key={products.id}
                       >
                         <th
@@ -375,9 +376,6 @@ export default function Warehouse() {
                         <td className="py-4 px-6">{products.pickingStatus}</td>
 
                         <td className="py-4 px-6 text-right">
-                          <button className="pr-1 font-medium text-white hover:underline">
-                            Edit
-                          </button>
                           <>
                             <DeleteModal />
                             <button

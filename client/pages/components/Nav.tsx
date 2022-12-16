@@ -27,7 +27,7 @@ export default function Nav() {
           </div>
           <input
             type="text"
-            className="block w-auto rounded-sm border border-gray-600 bg-[#0d1117] py-1 pl-10 text-sm text-[#b4bac0] placeholder-[#8B949E] focus:border-[#f78166] focus:outline-none focus:ring-1 focus:ring-[#f78166]"
+            className="block w-auto rounded-md border border-gray-600 bg-[#0d1117] py-1 pl-10 text-sm text-[#b4bac0] placeholder-[#8B949E] focus:border-[#f78166] focus:outline-none focus:ring-1 focus:ring-[#f78166]"
             placeholder="Search for something"
           />
         </div>
