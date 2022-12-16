@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { useRouter } from "next/router";
+
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -5,16 +8,9 @@ import {
   TruckIcon,
   Square3Stack3DIcon,
 } from "@heroicons/react/24/solid";
-import {
-  ChevronDownIcon,
-  Cog6ToothIcon,
-  BellIcon,
-} from "@heroicons/react/24/outline";
+import { ChevronDownIcon, BellIcon } from "@heroicons/react/24/outline";
 
-import Link from "next/link";
-import { useRouter } from "next/router";
-
-export default function Nav() {
+export function Nav() {
   const router = useRouter();
   return (
     <div className="fixed top-0 left-0">
@@ -27,7 +23,7 @@ export default function Nav() {
           </div>
           <input
             type="text"
-            className="block w-auto rounded-md border border-gray-600 bg-[#0d1117] py-1 pl-10 text-sm text-[#b4bac0] placeholder-[#8B949E] focus:border-[#f78166] focus:outline-none focus:ring-1 focus:ring-[#f78166]"
+            className="block w-auto rounded-md border border-gray-600 bg-[#0d1117] py-1 pl-10 text-sm text-[#b4bac0] placeholder-[#8B949E] focus:outline-none"
             placeholder="Search for something"
           />
         </div>
@@ -38,11 +34,12 @@ export default function Nav() {
       <aside className="fixed mt-[62px] h-full w-48 border-r border-r-gray-700 bg-[#0d1117]">
         <div className=" px-3 py-5 text-white">
           <div className="flex items-center align-middle ">
-            <p className="text-sm font-bold">Username</p>
-            <ChevronDownIcon className="mt-1 ml-2 h-5 w-5 text-white" />
-            <Cog6ToothIcon className="ml-12 h-5 w-5" />
+            <p className="text-sm font-bold">Augusto M.</p>
+            <ChevronDownIcon className="mt-1 ml-14 h-5 w-5 cursor-pointer text-white hover:text-[#c7c7c7]" />
           </div>
-          <p className="text-xs">Online</p>
+          <p className="text-xs text-[#8B949E]">
+            Need help? <a href="#">click here!</a>
+          </p>
         </div>
         <div className="h-full">
           <h1 className="ml-3 text-sm font-bold text-white">Solutions</h1>

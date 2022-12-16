@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import Nav from "./components/Nav";
+import { Nav } from "./components/Nav";
 import { ArrowUturnRightIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
@@ -18,9 +18,9 @@ export default function Home() {
         <div className="max-w-screen max-h-screen px-14 py-8">
           <div className="my-6 flex flex-col">
             <div className="flex items-center gap-2">
-              <h1 className="pb-2 text-4xl">Home</h1>
+              <h1 className="pb-2 text-3xl">Home</h1>
             </div>
-            <p className="text-[#8B949E]">
+            <p className="text-base text-[#8B949E]">
               This is the dashboard information overview
               <br />
               for the management members.{" "}
