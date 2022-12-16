@@ -314,19 +314,19 @@ export default function Warehouse() {
             <div className="grid h-24 grid-cols-2 bg-[#252527] text-center text-white">
               <section className="max-w-[194px] border-[1px] border-zinc-600 px-16 py-6 text-xs font-bold uppercase shadow-sm">
                 <p>Products</p>
-                <p className="text-xl font-bold text-[#c6ace3]">
+                <p className="text-xl font-bold text-[#58A6FF]">
                   {count?.count}
                 </p>
               </section>
               <section className="max-w-[194px] border-[1px] border-zinc-600 p-6  px-16 text-xs font-bold uppercase shadow-sm">
                 <p>Limit</p>
-                <p className="text-xl font-bold text-[#c6ace3]">250</p>
+                <p className="text-xl font-bold text-[#58A6FF]">250</p>
               </section>
             </div>
           </div>
           <div className="relative h-[470px] overflow-y-scroll shadow-lg transition-all sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-              <thead className="bg-zinc-900 text-xs uppercase text-white ">
+              <thead className="bg-[#161b22] text-xs uppercase text-white ">
                 <tr>
                   <th scope="col" className="py-3 px-6">
                     Product name
@@ -375,14 +375,14 @@ export default function Warehouse() {
                         <td className="py-4 px-6">{products.pickingStatus}</td>
 
                         <td className="py-4 px-6 text-right">
-                          <button className="pr-1 font-medium text-[#c6ace3] hover:underline">
+                          <button className="pr-1 font-medium text-white hover:underline">
                             Edit
                           </button>
                           <>
                             <DeleteModal />
                             <button
                               onClick={() => handleDelete(products.id)}
-                              className="pl-1 font-medium text-[#c6ace3] hover:underline"
+                              className="pl-1 font-medium text-white hover:underline"
                             >
                               Delete
                             </button>

@@ -117,7 +117,7 @@ export default function Transportation() {
                 </div>
                 <input
                   type="text"
-                  className="block w-auto rounded-lg border border-zinc-600 bg-[#212124] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#c6ace3] focus:outline-none focus:ring-1 focus:ring-[#c6ace3] sm:text-sm"
+                  className="block w-auto rounded-lg border border-zinc-700 bg-[#0d1117] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#f78166] focus:outline-none focus:ring-1 focus:ring-[#f78166] sm:text-sm"
                   placeholder="Search deliveries"
                   onChange={(e) => setQuery(e.target.value)}
                 />
@@ -280,8 +280,18 @@ export default function Transportation() {
 
           <div className="relative h-[470px] overflow-y-scroll shadow-lg sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-400  ">
-              <thead className="bg-[#18181B] text-xs uppercase text-white ">
+              <thead className="bg-[#161b22] text-xs uppercase text-white ">
                 <tr>
+                  <th scope="col" className="p-4">
+                    <div className="flex items-center">
+                      <input
+                        id="checkbox-all-search"
+                        type="checkbox"
+                        className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                      />
+                      <label className="sr-only">checkbox</label>
+                    </div>
+                  </th>
                   <th scope="col" className="py-3 px-6">
                     Del. number
                   </th>
@@ -326,6 +336,16 @@ export default function Transportation() {
                         className="border-b border-zinc-700 bg-[#222227] hover:bg-zinc-700"
                         key={items.id}
                       >
+                        <td className="w-4 p-4">
+                          <div className="flex items-center">
+                            <input
+                              id="checkbox-table-search-2"
+                              type="checkbox"
+                              className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                            />
+                            <label className="sr-only">checkbox</label>
+                          </div>
+                        </td>
                         <th
                           scope="row"
                           className="whitespace-nowrap py-4 px-6 font-medium text-white "
@@ -344,7 +364,7 @@ export default function Transportation() {
                         <td className="py-4 px-6 text-right">
                           <button
                             onClick={() => handleDelete(items.id)}
-                            className="font-medium text-[#c6ace3] hover:underline"
+                            className="font-medium text-white hover:underline"
                           >
                             Delete
                           </button>

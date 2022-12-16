@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply overflow-x-hidden bg-[#212124] font-Inter;
+    @apply overflow-x-hidden bg-[#0d1117] font-Inter;
   }
 }
 
