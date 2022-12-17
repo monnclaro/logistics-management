@@ -274,7 +274,7 @@ export default function Warehouse(props: CountProps) {
                   </div>
                   <input
                     type="text"
-                    className="block w-auto rounded-lg border border-zinc-700 bg-[#161b22] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#1f61fb] focus:outline-none focus:ring-1 focus:ring-[#1f61fb] sm:text-sm"
+                    className="block w-auto rounded-lg border border-zinc-700 bg-[#0d1117] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#1f61fb] focus:outline-none focus:ring-1 focus:ring-[#1f61fb] sm:text-sm"
                     placeholder="Search products"
                     onChange={(e) => setQuery(e.target.value)}
                   />
@@ -283,7 +283,7 @@ export default function Warehouse(props: CountProps) {
                 <Dialog.Root open={open} onOpenChange={setIsOpen}>
                   {createDialog()}
                   <Dialog.Trigger>
-                    <button className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm font-medium text-gray-400 duration-700 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
+                    <button className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm font-medium text-gray-400 duration-300 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
                       New product
                     </button>
                   </Dialog.Trigger>
@@ -292,13 +292,13 @@ export default function Warehouse(props: CountProps) {
             </div>
 
             <div className="grid h-24 grid-cols-2 bg-[#0d1117] text-center text-white">
-              <section className="max-w-[194px] border-[1px] border-zinc-700 px-16 py-6 text-xs font-bold uppercase shadow-sm">
+              <section className="max-w-[200px] border-[1px] border-zinc-700 px-16 py-6 text-xs font-bold shadow-sm">
                 <p>Products</p>
                 <p className="text-xl font-bold text-[#f78166]">
                   {props.itemsCount}
                 </p>
               </section>
-              <section className="max-w-[194px] border-[1px] border-zinc-700 p-6  px-16 text-xs font-bold uppercase shadow-sm">
+              <section className="max-w-[200px] border-[1px] border-zinc-700 p-6  px-16 text-xs font-bold shadow-sm">
                 <p>Limit</p>
                 <p className="text-xl font-bold text-[#f78166]">250</p>
               </section>

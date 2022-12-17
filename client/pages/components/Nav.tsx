@@ -34,12 +34,10 @@ export function Nav() {
       <aside className="fixed mt-[62px] h-full w-48 border-r border-r-gray-700 bg-[#0d1117]">
         <div className=" px-3 py-5 text-white">
           <div className="flex items-center align-middle ">
-            <p className="text-sm font-bold">Augusto M.</p>
+            <p className="text-sm font-bold">Vivienne M.</p>
             <ChevronDownIcon className="mt-1 ml-14 h-5 w-5 cursor-pointer text-white hover:text-[#c7c7c7]" />
           </div>
-          <p className="text-xs text-[#8B949E]">
-            Need help? <a href="#">click here!</a>
-          </p>
+          <p className="text-xs text-[#f78166]">Logistics Manager</p>
         </div>
         <div className="h-full">
           <h1 className="ml-3 text-sm font-bold text-white">Solutions</h1>
