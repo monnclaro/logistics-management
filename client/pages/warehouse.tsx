@@ -13,6 +13,7 @@ import { Input } from "./components/Input";
 import {
   ArrowPathIcon,
   MagnifyingGlassIcon,
+  TableCellsIcon,
 } from "@heroicons/react/24/outline";
 import { PlusSmallIcon } from "@heroicons/react/24/solid";
 
@@ -259,9 +260,9 @@ export default function Warehouse(props: CountProps) {
         <div className="max-w-screen max-h-screen py-20 px-28">
           <div className="flex justify-between pb-12">
             <div className="flex flex-col">
-              <div className="flex flex-row items-center gap-3 text-center align-middle">
+              <div className="flex flex-row items-center gap-2 text-center align-middle">
+                <TableCellsIcon className="h-5 w-5 cursor-pointer text-white" />
                 <h1 className="font-bold text-white ">Hangar 01</h1>
-                <ArrowPathIcon className="h-4 w-4 cursor-pointer text-white" />
               </div>
 
               <p className="pb-3 text-sm text-white">
@@ -305,9 +306,9 @@ export default function Warehouse(props: CountProps) {
             </div>
           </div>
 
-          <div className=" h-[470px] overflow-y-scroll shadow-lg transition-all sm:rounded-lg">
+          <div className=" h-[475px] overflow-y-scroll shadow-lg transition-all sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
-              <thead className="border border-zinc-700 bg-[#12151b] text-xs font-bold uppercase text-white">
+              <thead className="bg-[#12151b] text-xs font-bold uppercase text-white">
                 <tr>
                   <th scope="col" className="py-3 px-6">
                     Product name

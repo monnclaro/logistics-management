@@ -11,6 +11,7 @@ import {
   ArrowPathIcon,
   MagnifyingGlassIcon,
   PlusIcon,
+  TableCellsIcon,
 } from "@heroicons/react/24/outline";
 import axios from "axios";
 import { PlusSmallIcon } from "@heroicons/react/24/solid";
@@ -294,13 +295,13 @@ export default function Transportation(props: CountProps) {
         <div className="max-w-screen max-h-screen py-20 px-28">
           <div className="flex justify-between pb-12">
             <div className="flex flex-col">
-              <div className="flex flex-row items-center gap-3 text-center align-middle">
+              <div className="flex flex-row items-center gap-2 text-center align-middle">
+                <TableCellsIcon className="h-5 w-5 cursor-pointer text-white" />
                 <h1 className="font-bold text-white ">Deliveries</h1>
-                <ArrowPathIcon className="h-4 w-4 cursor-pointer text-white" />
               </div>
 
               <p className="pb-3 text-sm text-white">
-                Table last updated 2 hours ago
+                Table last updated 6 hours ago.
               </p>
 
               <div className="flex gap-6">
@@ -327,7 +328,7 @@ export default function Transportation(props: CountProps) {
             </div>
             <div className="grid h-24 grid-cols-2 bg-[#0d1117] text-center text-white">
               <section className="max-w-[200px] border-[1px] border-zinc-700 px-16 py-6 text-xs font-bold shadow-sm">
-                <p>Products</p>
+                <p>Deliveries</p>
                 <p className="text-xl font-bold text-[#f78166]">
                   {props.deliveriesCount}
                 </p>
@@ -341,7 +342,7 @@ export default function Transportation(props: CountProps) {
 
           <div className="h-[470px] overflow-y-scroll shadow-md sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-400  ">
-              <thead className="border border-zinc-700 bg-[#12151b] text-xs font-bold uppercase text-white ">
+              <thead className="bg-[#12151b] text-xs font-bold uppercase text-white ">
                 <tr>
                   <th scope="col" className="p-4">
                     <div className="flex items-center">

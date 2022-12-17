@@ -6,9 +6,15 @@ import {
   MagnifyingGlassIcon,
   HomeIcon,
   TruckIcon,
-  Square3Stack3DIcon,
 } from "@heroicons/react/24/solid";
-import { ChevronDownIcon, BellIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronDownIcon,
+  BellIcon,
+  ChartBarSquareIcon,
+  Square3Stack3DIcon,
+  Squares2X2Icon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
 
 export function Nav() {
   const router = useRouter();
@@ -33,11 +39,12 @@ export function Nav() {
 
       <aside className="fixed mt-[62px] h-full w-48 border-r border-r-gray-700 bg-[#0d1117]">
         <div className=" px-3 py-5 text-white">
-          <div className="flex items-center align-middle ">
+          <div className="flex items-center gap-1 align-middle">
+            <UserCircleIcon className="h-5 w-5 text-white hover:text-[#c7c7c7]" />
             <p className="text-sm font-bold">Vivienne M.</p>
-            <ChevronDownIcon className="mt-1 ml-14 h-5 w-5 cursor-pointer text-white hover:text-[#c7c7c7]" />
+            <ChevronDownIcon className="h-5 w-5 cursor-pointer text-white hover:text-[#c7c7c7]" />
           </div>
-          <p className="text-xs text-[#f78166]">Logistics Manager</p>
+          <p className="pt-1 text-xs text-[#f78166]">Logistics Manager</p>
         </div>
         <div className="h-full">
           <h1 className="ml-3 text-sm font-bold text-white">Solutions</h1>
@@ -52,7 +59,7 @@ export function Nav() {
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }
                 >
-                  <HomeIcon className="ml-2 h-5 w-5 text-white" />
+                  <ChartBarSquareIcon className="ml-2 h-5 w-5 text-white" />
                   <span className="ml-2 mr-2 text-sm">Overview</span>
                 </Link>
               </div>
@@ -79,7 +86,7 @@ export function Nav() {
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }
                 >
-                  <TruckIcon className="ml-2 h-5 w-5 text-white" />
+                  <Squares2X2Icon className="ml-2 h-5 w-5 text-white" />
                   <span className="ml-2 text-sm">Transportation</span>
                 </Link>
               </div>
