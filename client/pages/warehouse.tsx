@@ -1,17 +1,20 @@
+import axios from "axios";
+
 import Head from "next/head";
 
-import axios from "axios";
 import { useState, useEffect, FormEvent } from "react";
 
 import * as Dialog from "@radix-ui/react-dialog";
+import * as AlertDialog from "@radix-ui/react-alert-dialog";
 
 import { Nav } from "./components/Nav";
+import { Input } from "./components/Input";
 
 import {
   ArrowPathIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { Input } from "./components/Input";
+import { PlusSmallIcon } from "@heroicons/react/24/solid";
 
 type ItemProps = {
   id: string;
@@ -42,6 +45,7 @@ export const getServerSideProps = async () => {
 export default function Warehouse(props: CountProps) {
   const [items, setItems] = useState<ItemProps[]>([]);
   const [open, setIsOpen] = useState(false);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -97,6 +101,7 @@ export default function Warehouse(props: CountProps) {
   function handleDelete(id: string) {
     try {
       axios.delete(`http://localhost:4000/warehouseitems/${id}`);
+      setDeleteDialogOpen(false);
       setItems(items.filter((p) => p.id !== id));
     } catch (error) {
       console.log(error);
@@ -108,18 +113,21 @@ export default function Warehouse(props: CountProps) {
     return open ? (
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/60" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-10 text-white shadow-lg shadow-black/25">
-          <Dialog.Title className="text-center">Add a new item</Dialog.Title>
-          <Dialog.Description className="pt-0.5 text-center text-sm text-[#8B949E]">
-            Fill in all fields
+        <Dialog.Content className="fixed top-1/2 left-1/2 w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-10 text-white shadow-lg shadow-black/25">
+          <Dialog.Title className="flex items-center gap-1 text-xl">
+            New product
+            <PlusSmallIcon className="h-7 w-7" />
+          </Dialog.Title>
+          <Dialog.Description className="pt-0.5 text-sm text-[#8B949E]">
+            Fill in all fields to create a new product in our database.
           </Dialog.Description>
-          <form onSubmit={handleCreateItem} className="mt-8">
+          <form onSubmit={handleCreateItem} className="mt-6">
             <div className="flex flex-col gap-4">
-              <div className="flex justify-evenly">
+              <div className="flex justify-between">
                 <div>
                   <label
                     htmlFor="product"
-                    className="text-xs font-semibold text-white"
+                    className="text-sm font-semibold text-white"
                   >
                     Product
                   </label>
@@ -134,7 +142,7 @@ export default function Warehouse(props: CountProps) {
                 <div>
                   <label
                     htmlFor="description"
-                    className="text-xs font-semibold text-white"
+                    className="text-sm font-semibold text-white"
                   >
                     Description
                   </label>
@@ -147,11 +155,11 @@ export default function Warehouse(props: CountProps) {
                   />
                 </div>
               </div>
-              <div className="flex justify-evenly">
+              <div className="flex justify-between">
                 <div>
                   <label
                     htmlFor="sku"
-                    className="text-xs font-semibold text-white"
+                    className="text-sm font-semibold text-white"
                   >
                     SKU
                   </label>
@@ -166,7 +174,7 @@ export default function Warehouse(props: CountProps) {
                 <div>
                   <label
                     htmlFor="weight"
-                    className="text-xs font-semibold text-white"
+                    className="text-sm font-semibold text-white"
                   >
                     Weight
                   </label>
@@ -180,10 +188,10 @@ export default function Warehouse(props: CountProps) {
                 </div>
               </div>
 
-              <div className="pl-7">
+              <div className="">
                 <label
                   htmlFor="pickingStatus"
-                  className="text-xs font-semibold text-white"
+                  className="text-sm font-semibold text-white"
                 >
                   Picking status
                 </label>
@@ -213,6 +221,29 @@ export default function Warehouse(props: CountProps) {
           </form>
         </Dialog.Content>
       </Dialog.Portal>
+    ) : null;
+  }
+
+  function deleteDialog() {
+    return deleteDialogOpen ? (
+      <AlertDialog.Portal>
+        <AlertDialog.Overlay className="white fixed inset-0 bg-black bg-opacity-5" />
+        <AlertDialog.Content className="fixed top-1/2 left-1/2 w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-10 text-white shadow-lg shadow-black/25">
+          <AlertDialog.Title className="text-xl">
+            Delivery successfully deleted
+          </AlertDialog.Title>
+          <AlertDialog.Description className="pt-0.5  text-sm text-[#8B949E]">
+            This delivery has been successfully deleted.
+          </AlertDialog.Description>
+          <div>
+            <AlertDialog.Action asChild>
+              <button className="mt-4 flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] pt-0 text-sm font-bold text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
+                Got it, thanks!
+              </button>
+            </AlertDialog.Action>
+          </div>
+        </AlertDialog.Content>
+      </AlertDialog.Portal>
     ) : null;
   }
 
@@ -324,14 +355,22 @@ export default function Warehouse(props: CountProps) {
                         <td className="py-4 px-6">{products.weight}</td>
                         <td className="py-4 px-6">{products.pickingStatus}</td>
 
-                        <td className="py-4 px-6 text-right">
-                          <button
-                            onClick={() => handleDelete(products.id)}
-                            className="pl-1 font-medium text-white hover:underline"
-                          >
-                            Delete
-                          </button>
-                        </td>
+                        <AlertDialog.Root
+                          open={deleteDialogOpen}
+                          onOpenChange={setDeleteDialogOpen}
+                        >
+                          <td className="py-4 px-6 text-right">
+                            {deleteDialog()}
+                            <AlertDialog.Trigger>
+                              <button
+                                onClick={() => handleDelete(products.id)}
+                                className="pl-1 font-medium text-white hover:underline"
+                              >
+                                Delete
+                              </button>
+                            </AlertDialog.Trigger>
+                          </td>
+                        </AlertDialog.Root>
                       </tr>
                     );
                   })}
