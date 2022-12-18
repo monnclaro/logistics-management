@@ -44,7 +44,7 @@ export function Nav() {
             <p className="text-sm font-bold">Vivienne M.</p>
             <ChevronDownIcon className="h-5 w-5 cursor-pointer text-white hover:text-[#c7c7c7]" />
           </div>
-          <p className="pt-1 text-xs text-[#f78166]">Logistics Manager</p>
+          <p className="pt-1 text-xs text-gray-200">Logistics Manager</p>
         </div>
         <div className="h-full">
           <h1 className="ml-3 text-sm font-bold text-white">Solutions</h1>
@@ -55,7 +55,7 @@ export function Nav() {
                   href="/"
                   className={
                     router.pathname == "/"
-                      ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-normal text-white"
+                      ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-bold text-white"
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }
                 >
@@ -69,7 +69,7 @@ export function Nav() {
                   href="/warehouse"
                   className={
                     router.pathname == "/warehouse"
-                      ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-normal text-white"
+                      ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-bold text-white"
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }
                 >
@@ -82,7 +82,7 @@ export function Nav() {
                   href="/transportation"
                   className={
                     router.pathname == "/transportation"
-                      ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-normal text-white"
+                      ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-bold text-white"
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }
                 >
