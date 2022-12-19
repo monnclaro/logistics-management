@@ -34,7 +34,7 @@ export default function Home() {
 
       <main className="h-screen w-screen pt-[65px] pl-48 text-white">
         <div className="max-w-screen max-h-screen px-14 py-8">
-          <div className="mt-6 flex flex-col">
+          <div className="my-6 flex flex-col">
             <div className="flex items-center gap-2">
               <h1 className="mb-1 text-3xl">Overview</h1>
             </div>
@@ -45,11 +45,10 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="my-6 h-[1px] w-[350px] bg-gray-700"></div>
-
           <div className="flex flex-col gap-8">
             <div>
-              <h1 className="pb-[12px] text-2xl">Solutions</h1>
+              <h1 className="pb-1 text-2xl">Solutions</h1>
+              <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
               <div className="flex gap-8">
                 <Link
                   href="/tms/deliveries"
@@ -86,21 +85,28 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col">
-              <h1 className="pb-[12px] text-2xl">Revenue</h1>
+              <h1 className="pb-1 text-2xl">Revenue</h1>
+              <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
               <div className="flex gap-8 bg-[#0d1117]">
                 {Object.keys(stats).map((key) => {
                   const stat = stats[key as keyof typeof stats];
                   return (
-                    <div className="block h-[150px] w-[350px] rounded-lg border border-zinc-700 bg-[#0d1117] p-6 shadow-md hover:shadow-md">
+                    <div
+                      className="block h-[200px] w-[400px] rounded-lg border border-zinc-700 bg-[#0d1117] px-8 py-12 shadow-md hover:shadow-md"
+                      key={stat.value}
+                    >
                       <div key={stat.title}>
-                        <h1 className="flex justify-between pb-3 text-lg tracking-tight text-gray-400">
+                        <h1
+                          className="flex justify-between text-xl tracking-tight text-gray-400"
+                          key={stat.title}
+                        >
                           {stat.title}
-                          <EllipsisVerticalIcon className="h-6 w-5 cursor-pointer text-gray-400" />
+                          <EllipsisVerticalIcon className="h-7 w-7 cursor-pointer text-gray-400" />
                         </h1>
                       </div>
                       <div>
                         <h1
-                          className="text-xl font-bold tracking-tight text-white"
+                          className="pt-4 text-2xl font-bold tracking-tight text-white"
                           key={stat.value}
                         >
                           {stat.value}
@@ -110,7 +116,7 @@ export default function Home() {
                   );
                 })}
               </div>
-            </div>
+            </div>{" "}
           </div>
         </div>
       </main>

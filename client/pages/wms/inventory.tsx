@@ -126,7 +126,7 @@ export default function Warehouse(props: CountProps) {
                     htmlFor="category"
                     className="text-sm font-semibold text-white"
                   >
-                    Categoru
+                    Category
                   </label>
                   <Input
                     type="text"
@@ -226,6 +226,8 @@ export default function Warehouse(props: CountProps) {
   function deleteDialog() {
     return deleteDialogOpen ? (
       <AlertDialog.Portal>
+        <AlertDialog.Overlay />
+
         <AlertDialog.Content className="fixed bottom-0 right-0 mb-8 mr-8 flex h-[50px] w-[260px] translate-y-0 items-center justify-between rounded-lg border border-zinc-700 bg-white py-4 px-4 text-black shadow-lg shadow-black/25 transition-all duration-1000 ease-in-out ">
           <AlertDialog.Title className="text-sm">
             The product was deleted.
