@@ -3,16 +3,14 @@ import axios from "axios";
 import Head from "next/head";
 
 import { useState, useEffect, FormEvent } from "react";
-import * as Popover from "@radix-ui/react-popover";
 
 import * as Dialog from "@radix-ui/react-dialog";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 
-import { Nav } from "./components/Nav";
-import { Input } from "./components/Input";
+import { Nav } from "../components/Nav";
+import { Input } from "../components/Input";
 
 import {
-  ArrowPathIcon,
   MagnifyingGlassIcon,
   TableCellsIcon,
 } from "@heroicons/react/24/outline";
@@ -21,10 +19,11 @@ import { PlusSmallIcon, XMarkIcon } from "@heroicons/react/24/solid";
 type ItemProps = {
   id: string;
   product: string;
-  description: string;
+  category: string;
   sku: string;
-  weight: number;
-  pickingStatus: string;
+  stock: string;
+  rating: string;
+  price: string;
   createdAt: Date;
 };
 
@@ -48,7 +47,6 @@ export default function Warehouse(props: CountProps) {
   const [items, setItems] = useState<ItemProps[]>([]);
   const [open, setIsOpen] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-  const [updateDialogOpen, setUpdateDialogOpen] = useState(false);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -68,10 +66,11 @@ export default function Warehouse(props: CountProps) {
         `http://localhost:4000/warehouseitems`,
         {
           product: data.product,
-          description: data.description,
+          category: data.category,
           sku: data.sku,
-          weight: data.weight,
-          pickingStatus: data.pickingStatus,
+          stock: data.stock,
+          price: data.price,
+          rating: data.rating,
         }
       );
       setItems([response.data, ...items]);
@@ -124,16 +123,16 @@ export default function Warehouse(props: CountProps) {
                 </div>
                 <div>
                   <label
-                    htmlFor="description"
+                    htmlFor="category"
                     className="text-sm font-semibold text-white"
                   >
-                    Description
+                    Categoru
                   </label>
                   <Input
                     type="text"
-                    placeholder="Description"
-                    name="description"
-                    id="description"
+                    placeholder="Category"
+                    name="category"
+                    id="category"
                     required
                   />
                 </div>
@@ -156,35 +155,52 @@ export default function Warehouse(props: CountProps) {
                 </div>
                 <div>
                   <label
-                    htmlFor="weight"
+                    htmlFor="stock"
                     className="text-sm font-semibold text-white"
                   >
-                    Weight
+                    Stock
                   </label>
                   <Input
                     type="text"
-                    placeholder="Weight"
-                    name="weight"
-                    id="weight"
+                    placeholder="Stock"
+                    name="stock"
+                    id="stock"
                     required
                   />
                 </div>
               </div>
 
-              <div className="">
-                <label
-                  htmlFor="pickingStatus"
-                  className="text-sm font-semibold text-white"
-                >
-                  Picking status
-                </label>
-                <Input
-                  type="text"
-                  placeholder="Picking status"
-                  name="pickingStatus"
-                  id="pickingStatus"
-                  required
-                />
+              <div className="flex justify-between">
+                <div>
+                  <label
+                    htmlFor="price"
+                    className="text-sm font-semibold text-white"
+                  >
+                    Price
+                  </label>
+                  <Input
+                    type="text"
+                    placeholder="Price"
+                    name="price"
+                    id="price"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="rating"
+                    className="text-sm font-semibold text-white"
+                  >
+                    Rating
+                  </label>
+                  <Input
+                    type="text"
+                    placeholder="Rating"
+                    name="rating"
+                    id="rating"
+                    required
+                  />
+                </div>
               </div>
             </div>
             <div className="mt-10 flex justify-end gap-4">
@@ -210,19 +226,14 @@ export default function Warehouse(props: CountProps) {
   function deleteDialog() {
     return deleteDialogOpen ? (
       <AlertDialog.Portal>
-        <AlertDialog.Overlay className="white fixed inset-0 bg-black bg-opacity-30" />
-        <AlertDialog.Content className="fixed top-1/2 left-1/2 w-[400px] -translate-x-1/2 -translate-y-1/2 items-center rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-10 text-white shadow-lg shadow-black/25">
-          <AlertDialog.Title className="text-center text-xl">
-            Product successfully deleted
+        <AlertDialog.Content className="fixed bottom-0 right-0 mb-8 mr-8 flex h-[50px] w-[260px] translate-y-0 items-center justify-between rounded-lg border border-zinc-700 bg-white py-4 px-4 text-black shadow-lg shadow-black/25 transition-all duration-1000 ease-in-out ">
+          <AlertDialog.Title className="text-sm">
+            The product was deleted.
           </AlertDialog.Title>
-          <AlertDialog.Description className="pt-1 text-center text-sm text-[#8B949E]">
-            This product has been successfully deleted.
-          </AlertDialog.Description>
+
           <div className="flex justify-center">
             <AlertDialog.Action asChild>
-              <button className="mt-4 flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] pt-0 text-sm font-bold text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
-                Got it, thanks!
-              </button>
+              <XMarkIcon className="h-6 w-6 cursor-pointer hover:rounded-full hover:bg-gray-200" />
             </AlertDialog.Action>
           </div>
         </AlertDialog.Content>
@@ -233,7 +244,7 @@ export default function Warehouse(props: CountProps) {
   return (
     <div>
       <Head>
-        <title>Warehouse Management System</title>
+        <title>WMS | Inventory</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -293,19 +304,22 @@ export default function Warehouse(props: CountProps) {
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white">
                 <tr>
                   <th scope="col" className="py-3 px-6">
-                    Product name
+                    Product
                   </th>
                   <th scope="col" className="py-3 px-6">
-                    Description
+                    Category
                   </th>
                   <th scope="col" className="py-3 px-6">
                     SKU
                   </th>
                   <th scope="col" className="py-3 px-6">
-                    Weight
+                    Stock
                   </th>
                   <th scope="col" className="py-3 px-6">
-                    Picking status
+                    Price
+                  </th>
+                  <th scope="col" className="py-3 px-6">
+                    Rating
                   </th>
                   <th scope="col" className="py-3 px-6">
                     <span className="sr-only">Edit</span>
@@ -317,9 +331,11 @@ export default function Warehouse(props: CountProps) {
                   ?.filter(
                     (item) =>
                       item.product.toLowerCase().includes(query) ||
-                      item.description.toLowerCase().includes(query) ||
+                      item.category.toLowerCase().includes(query) ||
                       item.sku.toLowerCase().includes(query) ||
-                      item.pickingStatus.toLowerCase().includes(query)
+                      item.price.toLowerCase().includes(query) ||
+                      item.rating.toLowerCase().includes(query) ||
+                      item.stock.toLowerCase().includes(query)
                   )
                   .map((products) => {
                     return (
@@ -333,10 +349,11 @@ export default function Warehouse(props: CountProps) {
                         >
                           {products.product}
                         </th>
-                        <td className="py-4 px-6">{products.description}</td>
+                        <td className="py-4 px-6">{products.category}</td>
                         <td className="py-4 px-6">{products.sku}</td>
-                        <td className="py-4 px-6">{products.weight}</td>
-                        <td className="py-4 px-6">{products.pickingStatus}</td>
+                        <td className="py-4 px-6">{products.stock}</td>
+                        <td className="py-4 px-6">{products.price}</td>
+                        <td className="py-4 px-6">{products.rating}</td>
 
                         <td className="py-4 px-6 text-right">
                           <AlertDialog.Root

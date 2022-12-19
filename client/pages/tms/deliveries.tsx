@@ -4,17 +4,15 @@ import { useState, useEffect, FormEvent } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
 
-import { Nav } from "./components/Nav";
-import { Input } from "./components/Input";
+import { Nav } from "../components/Nav";
+import { Input } from "../components/Input";
 
 import {
-  ArrowPathIcon,
   MagnifyingGlassIcon,
-  PlusIcon,
   TableCellsIcon,
 } from "@heroicons/react/24/outline";
 import axios from "axios";
-import { PlusSmallIcon } from "@heroicons/react/24/solid";
+import { PlusSmallIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 type DataProps = {
   id: string;
@@ -264,19 +262,14 @@ export default function Transportation(props: CountProps) {
   function deleteDialog() {
     return deleteDialogOpen ? (
       <AlertDialog.Portal>
-        <AlertDialog.Overlay className="white fixed inset-0 bg-black bg-opacity-5" />
-        <AlertDialog.Content className="fixed top-1/2 left-1/2 w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-10 text-white shadow-lg shadow-black/25">
-          <AlertDialog.Title className="text-center text-xl">
-            Delivery successfully deleted
+        <AlertDialog.Content className="fixed bottom-0 right-0 mb-8 mr-8 flex h-[50px] w-[260px] translate-y-0 items-center justify-between rounded-lg border border-zinc-700 bg-white py-4 px-4 text-black shadow-lg shadow-black/25 transition-all duration-1000 ease-in-out ">
+          <AlertDialog.Title className="text-sm">
+            The delivery was deleted.
           </AlertDialog.Title>
-          <AlertDialog.Description className="pt-1 text-center text-sm text-[#8B949E]">
-            This delivery has been successfully deleted.
-          </AlertDialog.Description>
+
           <div className="flex justify-center">
             <AlertDialog.Action asChild>
-              <button className="mt-4 flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] pt-0 text-sm font-bold text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
-                Got it, thanks!
-              </button>
+              <XMarkIcon className="h-6 w-6 cursor-pointer hover:rounded-full hover:bg-gray-200" />
             </AlertDialog.Action>
           </div>
         </AlertDialog.Content>
@@ -287,7 +280,7 @@ export default function Transportation(props: CountProps) {
   return (
     <div>
       <Head>
-        <title>Transport Management</title>
+        <title>TMS | Deliveries</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
@@ -390,6 +383,11 @@ export default function Transportation(props: CountProps) {
                       product.carNumber.toLocaleLowerCase().includes(query) ||
                       product.carrier.toLocaleLowerCase().includes(query) ||
                       product.shipTo.toLocaleLowerCase().includes(query) ||
+                      product.weight.toLocaleLowerCase().includes(query) ||
+                      product.numberOfItems
+                        .toLocaleLowerCase()
+                        .includes(query) ||
+                      product.dateTime.toLocaleLowerCase().includes(query) ||
                       product.pickingStatus.toLocaleLowerCase().includes(query)
                   )
                   .map((items) => {

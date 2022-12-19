@@ -66,9 +66,9 @@ export function Nav() {
 
               <div>
                 <Link
-                  href="/warehouse"
+                  href="/wms/inventory"
                   className={
-                    router.pathname == "/warehouse"
+                    router.pathname == "/wms/inventory"
                       ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-bold text-white"
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }
@@ -79,9 +79,9 @@ export function Nav() {
               </div>
               <div>
                 <Link
-                  href="/transportation"
+                  href="/tms/deliveries"
                   className={
-                    router.pathname == "/transportation"
+                    router.pathname == "/tms/deliveries"
                       ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-bold text-white"
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }

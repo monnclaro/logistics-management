@@ -37,17 +37,16 @@ app.get("/deliveryitems", async (request, response) => {
 });
 
 app.post("/warehouseitems", async (request, response) => {
-  //const itemId = request.params.id;
   const body = request.body;
 
   const item = await prisma.warehouseItem.create({
     data: {
-      //id: itemId,
       product: body.product,
-      description: body.description,
+      category: body.category,
       sku: body.sku,
-      weight: body.weight,
-      pickingStatus: body.pickingStatus,
+      stock: body.stock,
+      price: body.price,
+      rating: body.rating,
     },
   });
 
@@ -61,10 +60,12 @@ app.get("/warehouseitems/:id", async (request, response) => {
     select: {
       id: true,
       product: true,
-      description: true,
+      category: true,
       sku: true,
-      weight: true,
-      pickingStatus: true,
+      stock: true,
+      price: true,
+      rating: true,
+
       createdAt: true,
     },
     where: {
@@ -151,10 +152,11 @@ app.put("/warehouseitems/:id", async (request, response) => {
     },
     data: {
       product: body.product,
-      description: body.description,
+      category: body.category,
       sku: body.sku,
-      weight: body.weight,
-      pickingStatus: body.pickingStatus,
+      stock: body.stock,
+      price: body.price,
+      rating: body.rating,
     },
   });
 });

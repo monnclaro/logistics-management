@@ -22,11 +22,12 @@ model DeliveryItem {
 }
 
 model WarehouseItem {
-  id            String   @id @default(uuid())
-  product       String
-  description   String
-  sku           String
-  weight        String
-  pickingStatus String
-  createdAt     DateTime @default(now())
+  id        String   @id @default(uuid())
+  product   String
+  category  String
+  sku       String
+  stock     String
+  price     String
+  rating    String
+  createdAt DateTime @default(now())
 }
