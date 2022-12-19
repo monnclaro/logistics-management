@@ -99,7 +99,10 @@ export default function Home() {
                         </h1>
                       </div>
                       <div>
-                        <h1 className="text-xl font-bold tracking-tight text-white">
+                        <h1
+                          className="text-xl font-bold tracking-tight text-white"
+                          key={stat.value}
+                        >
                           {stat.value}
                         </h1>
                       </div>

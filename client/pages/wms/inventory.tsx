@@ -214,7 +214,7 @@ export default function Warehouse(props: CountProps) {
                 type="submit"
                 className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] pt-0 text-sm font-bold text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors"
               >
-                Add item
+                Add product
               </button>
             </div>
           </form>
