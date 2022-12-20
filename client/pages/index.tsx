@@ -38,7 +38,7 @@ export default function Home() {
       <Nav />
 
       <main className="h-screen w-screen pt-[65px] pl-48 text-white">
-        <div className="max-w-screen max-h-screen py-8 px-28">
+        <div className="max-w-screen max-h-screen py-20 px-28">
           <div className="my-6 flex flex-col">
             <div className="flex items-center gap-2">
               <h1 className="mb-1 text-2xl">Overview</h1>
@@ -53,26 +53,26 @@ export default function Home() {
             <div className="flex flex-col">
               <h1 className="pb-1 text-xl">Revenue</h1>
               <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
-              <div className="flex gap-8 bg-[#0d1117]">
+              <div className="flex gap-8">
                 {Object.keys(stats).map((key) => {
                   const stat = stats[key as keyof typeof stats];
                   return (
                     <div
-                      className="block h-[130px] w-[350px] rounded-lg border bg-white px-8 py-8 shadow-md hover:shadow-md"
+                      className="block h-[130px] w-[350px] rounded-lg border border-zinc-800 bg-[#161b22] px-8 py-8 shadow-md hover:shadow-md"
                       key={stat.value}
                     >
                       <div key={stat.title}>
                         <h1
-                          className="text-md flex justify-between tracking-tight text-black"
+                          className="text-md flex justify-between tracking-tight text-white"
                           key={stat.title}
                         >
                           {stat.title}
-                          <EllipsisVerticalIcon className="h-5 w-5 cursor-pointer text-black" />
+                          <EllipsisVerticalIcon className="h-5 w-5 cursor-pointer text-white" />
                         </h1>
                       </div>
                       <div>
                         <h1
-                          className="pt-1 text-lg font-bold tracking-tight text-black"
+                          className="pt-1 text-xl font-bold tracking-tight text-white"
                           key={stat.value}
                         >
                           {stat.value}
@@ -89,14 +89,14 @@ export default function Home() {
               <div className="flex gap-8">
                 <Link
                   href="/tms/deliveries"
-                  className="block h-[180px] w-[420px] rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
+                  className="block h-[160px] w-[420px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
                 >
                   <div className="flex justify-between">
                     <h5 className="text-md mb-2 font-bold tracking-tight text-white">
                       Transportation Management System (TMS)
                     </h5>
                   </div>
-                  <p className="pr-4 text-justify text-sm font-normal text-gray-400">
+                  <p className="text-justify text-sm font-normal text-gray-400">
                     Solution that helps to plan, execute, and optimize the
                     physical movement of goods, both incoming and outgoing, and
                     making sure the shipment is compliant.
@@ -104,17 +104,17 @@ export default function Home() {
                 </Link>
                 <Link
                   href="wms/inventory"
-                  className="block h-[180px] w-[420px] rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
+                  className="block h-[160px] w-[420px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
                 >
                   <div className="flex justify-between">
                     <h5 className="text-md mb-2 font-bold tracking-tight text-white">
                       Warehouse Management System (WMS)
                     </h5>
                   </div>
-                  <p className="pr-4 text-justify text-sm font-normal text-gray-400">
+                  <p className="text-justify text-sm font-normal text-gray-400">
                     Solution that offers visibility into a business entire
-                    inventory and manages supply chain fullfilment operations
-                    from the distribution center to the store shelf.
+                    inventory and manages supply chain operations from the
+                    distribution center to the store shelf.
                   </p>
                 </Link>
               </div>
