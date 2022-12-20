@@ -25,13 +25,21 @@ app.get("/deliveryitems/count", async (request, response) => {
 });
 
 app.get("/warehouseitems", async (request, response) => {
-  const items = await prisma.warehouseItem.findMany();
+  const items = await prisma.warehouseItem.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
   return response.json(items);
 });
 
 app.get("/deliveryitems", async (request, response) => {
-  const items = await prisma.deliveryItem.findMany();
+  const items = await prisma.deliveryItem.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 
   return response.json(items);
 });

@@ -251,6 +251,7 @@ export default function Warehouse(props: CountProps) {
       </Head>
 
       <Nav />
+
       <div className="h-screen w-screen pt-[82px] pl-48">
         <div className="max-w-screen max-h-screen py-20 px-28">
           <div className="flex justify-between pb-12">
