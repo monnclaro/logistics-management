@@ -1,20 +1,19 @@
+import axios from "axios";
 import Head from "next/head";
-
 import { useState, useEffect, FormEvent } from "react";
-import * as Dialog from "@radix-ui/react-dialog";
-import * as AlertDialog from "@radix-ui/react-alert-dialog";
 
 import { Nav } from "../components/Nav";
 import { Input } from "../components/Input";
 
+import toast, { Toaster } from "react-hot-toast";
+import * as Dialog from "@radix-ui/react-dialog";
+import { PlusSmallIcon } from "@heroicons/react/24/solid";
 import {
   MagnifyingGlassIcon,
   TableCellsIcon,
 } from "@heroicons/react/24/outline";
-import axios from "axios";
-import { PlusSmallIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
-type DataProps = {
+type DeliveryProps = {
   id: string;
   carNumber: string;
   dateTime: string;
@@ -43,11 +42,13 @@ export const getServerSideProps = async () => {
   };
 };
 
+const deletionNotify = () => toast.success("Successfully deleted!");
+const errorNotify = () => toast.error("This didn't work.");
+
 export default function Transportation(props: CountProps) {
-  const [items, setItems] = useState<DataProps[]>([]);
+  const [items, setItems] = useState<DeliveryProps[]>([]);
   const [open, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   useEffect(() => {
     axios("http://localhost:4000/deliveryitems").then((response) =>
@@ -60,11 +61,12 @@ export default function Transportation(props: CountProps) {
       const response = axios.delete(
         `http://localhost:4000/deliveryitems/${id}`
       );
-      setDeleteDialogOpen(false);
+
       setItems(items.filter((p) => p.id !== id));
+      deletionNotify();
     } catch (error) {
       console.log(error);
-      alert("Error while trying to delete the item!");
+      errorNotify();
     }
   }
 
@@ -259,24 +261,6 @@ export default function Transportation(props: CountProps) {
     ) : null;
   }
 
-  function deleteDialog() {
-    return deleteDialogOpen ? (
-      <AlertDialog.Portal>
-        <AlertDialog.Content className="fixed bottom-0 right-0 mb-8 mr-8 flex h-[50px] w-[260px] translate-y-0 items-center justify-between rounded-lg border border-zinc-700 bg-white py-4 px-4 text-black shadow-lg shadow-black/25 transition-all duration-1000 ease-in-out ">
-          <AlertDialog.Title className="text-sm">
-            The delivery was deleted.
-          </AlertDialog.Title>
-
-          <div className="flex justify-center">
-            <AlertDialog.Action asChild>
-              <XMarkIcon className="h-6 w-6 cursor-pointer hover:rounded-full hover:bg-gray-200" />
-            </AlertDialog.Action>
-          </div>
-        </AlertDialog.Content>
-      </AlertDialog.Portal>
-    ) : null;
-  }
-
   return (
     <div>
       <Head>
@@ -421,22 +405,19 @@ export default function Transportation(props: CountProps) {
                         <td className="py-4 px-6">{items.weight}</td>
                         <td className="py-4 px-6">{items.numberOfItems}</td>
                         <td className="py-4 px-6">{items.pickingStatus}</td>
-                        <AlertDialog.Root
-                          open={deleteDialogOpen}
-                          onOpenChange={setDeleteDialogOpen}
-                        >
-                          <td className="py-4 px-6 text-right">
-                            {deleteDialog()}
-                            <AlertDialog.Trigger>
-                              <button
-                                onClick={() => handleDelete(items.id)}
-                                className="font-medium text-white hover:underline"
-                              >
-                                Delete
-                              </button>
-                            </AlertDialog.Trigger>
-                          </td>
-                        </AlertDialog.Root>
+
+                        <td className="py-4 px-6 text-right">
+                          <button
+                            onClick={() => handleDelete(items.id)}
+                            className="font-medium text-white hover:underline"
+                          >
+                            Delete
+                          </button>
+                          <Toaster
+                            position="bottom-right"
+                            reverseOrder={false}
+                          />
+                        </td>
                       </tr>
                     );
                   })}

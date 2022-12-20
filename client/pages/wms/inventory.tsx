@@ -1,20 +1,17 @@
 import axios from "axios";
-
 import Head from "next/head";
-
 import { useState, useEffect, FormEvent } from "react";
-
-import * as Dialog from "@radix-ui/react-dialog";
-import * as AlertDialog from "@radix-ui/react-alert-dialog";
 
 import { Nav } from "../components/Nav";
 import { Input } from "../components/Input";
 
+import toast, { Toaster } from "react-hot-toast";
+import * as Dialog from "@radix-ui/react-dialog";
+import { PlusSmallIcon } from "@heroicons/react/24/solid";
 import {
   MagnifyingGlassIcon,
   TableCellsIcon,
 } from "@heroicons/react/24/outline";
-import { PlusSmallIcon, XMarkIcon } from "@heroicons/react/24/solid";
 
 type ItemProps = {
   id: string;
@@ -43,10 +40,12 @@ export const getServerSideProps = async () => {
   };
 };
 
+const deletionNotify = () => toast.success("Successfully deleted!");
+const errorNotify = () => toast.error("This didn't work.");
+
 export default function Warehouse(props: CountProps) {
   const [items, setItems] = useState<ItemProps[]>([]);
   const [open, setIsOpen] = useState(false);
-  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -83,11 +82,12 @@ export default function Warehouse(props: CountProps) {
   function handleDelete(id: string) {
     try {
       axios.delete(`http://localhost:4000/warehouseitems/${id}`);
-      setDeleteDialogOpen(false);
+
       setItems(items.filter((p) => p.id !== id));
+      deletionNotify();
     } catch (error) {
       console.log(error);
-      alert("Ocurred an error while deleting the item!");
+      errorNotify();
     }
   }
 
@@ -223,26 +223,6 @@ export default function Warehouse(props: CountProps) {
     ) : null;
   }
 
-  function deleteDialog() {
-    return deleteDialogOpen ? (
-      <AlertDialog.Portal>
-        <AlertDialog.Overlay />
-
-        <AlertDialog.Content className="fixed bottom-0 right-0 mb-8 mr-8 flex h-[50px] w-[260px] translate-y-0 items-center justify-between rounded-lg border border-zinc-700 bg-white py-4 px-4 text-black shadow-lg shadow-black/25 transition-all duration-1000 ease-in-out ">
-          <AlertDialog.Title className="text-sm">
-            The product was deleted.
-          </AlertDialog.Title>
-
-          <div className="flex justify-center">
-            <AlertDialog.Action asChild>
-              <XMarkIcon className="h-6 w-6 cursor-pointer hover:rounded-full hover:bg-gray-200" />
-            </AlertDialog.Action>
-          </div>
-        </AlertDialog.Content>
-      </AlertDialog.Portal>
-    ) : null;
-  }
-
   return (
     <div>
       <Head>
@@ -359,20 +339,16 @@ export default function Warehouse(props: CountProps) {
                         <td className="py-4 px-6">{products.rating}</td>
 
                         <td className="py-4 px-6 text-right">
-                          <AlertDialog.Root
-                            open={deleteDialogOpen}
-                            onOpenChange={setDeleteDialogOpen}
+                          <button
+                            onClick={() => handleDelete(products.id)}
+                            className="pl-1 font-medium text-white hover:underline"
                           >
-                            {deleteDialog()}
-                            <AlertDialog.Trigger>
-                              <button
-                                onClick={() => handleDelete(products.id)}
-                                className="pl-1 font-medium text-white hover:underline"
-                              >
-                                Delete
-                              </button>
-                            </AlertDialog.Trigger>
-                          </AlertDialog.Root>
+                            Delete
+                          </button>
+                          <Toaster
+                            position="bottom-right"
+                            reverseOrder={false}
+                          />
                         </td>
                       </tr>
                     );
