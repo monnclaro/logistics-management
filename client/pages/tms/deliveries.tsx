@@ -42,8 +42,69 @@ export const getServerSideProps = async () => {
   };
 };
 
-const deletionNotify = () => toast.success("Successfully deleted!");
-const errorNotify = () => toast.error("This didn't work.");
+const deletionNotify = () =>
+  toast.success("Successfully deleted!", {
+    position: "bottom-right",
+    style: {
+      borderRadius: "10px",
+      background: "#161b22",
+      borderColor: "#27272A",
+      color: "#fff",
+      fontSize: "15px",
+    },
+    iconTheme: {
+      primary: "#1f61fb",
+      secondary: "#fff",
+    },
+  });
+
+const deleteErrorNotify = () =>
+  toast.error("This didn't work.", {
+    position: "bottom-right",
+    style: {
+      borderRadius: "10px",
+      background: "#161b22",
+      borderColor: "#27272A",
+      color: "#fff",
+      fontSize: "15px",
+    },
+    iconTheme: {
+      primary: "#FF0000",
+      secondary: "#fff",
+    },
+  });
+
+const creationNotify = () =>
+  toast.success("Successfully created!", {
+    position: "bottom-right",
+    style: {
+      borderRadius: "10px",
+      background: "#161b22",
+      borderColor: "#27272A",
+      color: "#fff",
+      fontSize: "15px",
+    },
+    iconTheme: {
+      primary: "#1f61fb",
+      secondary: "#fff",
+    },
+  });
+
+const creationErrorNotify = () =>
+  toast.error("This didn't work.", {
+    position: "bottom-right",
+    style: {
+      borderRadius: "10px",
+      background: "#161b22",
+      borderColor: "#27272A",
+      color: "#fff",
+      fontSize: "15px",
+    },
+    iconTheme: {
+      primary: "#FF0000",
+      secondary: "#fff",
+    },
+  });
 
 export default function Transportation(props: CountProps) {
   const [items, setItems] = useState<DeliveryProps[]>([]);
@@ -58,15 +119,13 @@ export default function Transportation(props: CountProps) {
 
   function handleDelete(id: string) {
     try {
-      const response = axios.delete(
-        `http://localhost:4000/deliveryitems/${id}`
-      );
+      axios.delete(`http://localhost:4000/deliveryitems/${id}`);
 
       setItems(items.filter((p) => p.id !== id));
       deletionNotify();
     } catch (error) {
       console.log(error);
-      errorNotify();
+      deleteErrorNotify();
     }
   }
 
@@ -90,9 +149,10 @@ export default function Transportation(props: CountProps) {
 
       setItems([response.data, ...items]);
       setIsOpen(false);
-    } catch (err) {
-      console.log(err);
-      alert("Error while creating item!");
+      creationNotify();
+    } catch (error) {
+      console.log(error);
+      creationErrorNotify();
     }
   }
 
@@ -268,6 +328,7 @@ export default function Transportation(props: CountProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
+      <Toaster />
       <div className="h-screen w-screen pt-[82px] pl-48">
         <div className="max-w-screen max-h-screen py-20 px-28">
           <div className="flex justify-between pb-12">
@@ -277,9 +338,9 @@ export default function Transportation(props: CountProps) {
                 <h1 className="font-bold text-white ">Deliveries</h1>
               </div>
 
-              <p className="pb-3 text-sm text-white">
-                Table last updated 6 hours ago.
-              </p>
+              <div className="pb-3 text-sm text-white">
+                <p>Table last updated 6 hours ago.</p>
+              </div>
 
               <div className="flex gap-6">
                 <div className="relative">
@@ -413,10 +474,6 @@ export default function Transportation(props: CountProps) {
                           >
                             Delete
                           </button>
-                          <Toaster
-                            position="bottom-right"
-                            reverseOrder={false}
-                          />
                         </td>
                       </tr>
                     );

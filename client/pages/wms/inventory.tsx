@@ -40,8 +40,65 @@ export const getServerSideProps = async () => {
   };
 };
 
-const deletionNotify = () => toast.success("Successfully deleted!");
-const errorNotify = () => toast.error("This didn't work.");
+const deletionNotify = () =>
+  toast.success("Successfully deleted!", {
+    position: "bottom-right",
+    style: {
+      borderRadius: "10px",
+      background: "#161b22",
+      color: "#fff",
+      fontSize: "15px",
+    },
+    iconTheme: {
+      primary: "#1f61fb",
+      secondary: "#fff",
+    },
+  });
+
+const deleteErrorNotify = () =>
+  toast.error("This didn't work.", {
+    position: "bottom-right",
+    style: {
+      borderRadius: "10px",
+      background: "#161b22",
+      color: "#fff",
+      fontSize: "15px",
+    },
+    iconTheme: {
+      primary: "#FF0000",
+      secondary: "#fff",
+    },
+  });
+
+const creationNotify = () =>
+  toast.success("Successfully created!", {
+    position: "bottom-right",
+    style: {
+      borderRadius: "10px",
+      background: "#161b22",
+      color: "#fff",
+      fontSize: "15px",
+    },
+    iconTheme: {
+      primary: "#1f61fb",
+      secondary: "#fff",
+    },
+  });
+
+const creationErrorNotify = () =>
+  toast.error("This didn't work.", {
+    position: "bottom-right",
+    style: {
+      borderRadius: "10px",
+      background: "#161b22",
+      color: "#fff",
+      fontSize: "15px",
+    },
+    iconTheme: {
+      primary: "#FF0000",
+      secondary: "#fff",
+    },
+  });
 
 export default function Warehouse(props: CountProps) {
   const [items, setItems] = useState<ItemProps[]>([]);
@@ -74,20 +131,21 @@ export default function Warehouse(props: CountProps) {
       );
       setItems([response.data, ...items]);
       setIsOpen(false);
+      creationNotify();
     } catch (error) {
-      console.error();
+      console.error(error);
+      creationErrorNotify();
     }
   }
 
   function handleDelete(id: string) {
     try {
       axios.delete(`http://localhost:4000/warehouseitems/${id}`);
-
       setItems(items.filter((p) => p.id !== id));
       deletionNotify();
     } catch (error) {
       console.log(error);
-      errorNotify();
+      deleteErrorNotify();
     }
   }
 
@@ -231,7 +289,7 @@ export default function Warehouse(props: CountProps) {
       </Head>
 
       <Nav />
-
+      <Toaster />
       <div className="h-screen w-screen pt-[82px] pl-48">
         <div className="max-w-screen max-h-screen py-20 px-28">
           <div className="flex justify-between pb-12">
@@ -240,10 +298,9 @@ export default function Warehouse(props: CountProps) {
                 <TableCellsIcon className="h-5 w-5 cursor-pointer text-white" />
                 <h1 className="font-bold text-white ">Hangar 01</h1>
               </div>
-
-              <p className="pb-3 text-sm text-white">
-                Inventory last updated 2 hours ago.
-              </p>
+              <div className="pb-3 text-sm text-white">
+                <p>Inventory last updated 2 hours ago.</p>
+              </div>
               <div className="flex gap-6">
                 <div className="relative">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-center">
@@ -282,7 +339,7 @@ export default function Warehouse(props: CountProps) {
             </div>
           </div>
 
-          <div className=" h-[475px] overflow-y-scroll shadow-lg transition-all sm:rounded-lg">
+          <div className="h-[475px] overflow-y-scroll shadow-lg sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white">
                 <tr>
@@ -332,7 +389,7 @@ export default function Warehouse(props: CountProps) {
                         >
                           {products.product}
                         </th>
-                        <td className="py-4 px-6">{products.category}</td>
+                        <td className="py-4 px-6 ">{products.category}</td>
                         <td className="py-4 px-6">{products.sku}</td>
                         <td className="py-4 px-6">{products.stock}</td>
                         <td className="py-4 px-6">{products.price}</td>
@@ -345,10 +402,6 @@ export default function Warehouse(props: CountProps) {
                           >
                             Delete
                           </button>
-                          <Toaster
-                            position="bottom-right"
-                            reverseOrder={false}
-                          />
                         </td>
                       </tr>
                     );

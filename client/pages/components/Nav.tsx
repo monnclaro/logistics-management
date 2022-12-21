@@ -1,12 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  HomeIcon,
-  TruckIcon,
-} from "@heroicons/react/24/solid";
+import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import {
   ChevronDownIcon,
   BellIcon,
