@@ -41,7 +41,7 @@ export const getServerSideProps = async () => {
 };
 
 const deletionNotify = () =>
-  toast.success("Successfully deleted!", {
+  toast.success("Product deleted!", {
     position: "bottom-right",
     style: {
       borderRadius: "10px",
@@ -153,7 +153,7 @@ export default function Warehouse(props: CountProps) {
     return open ? (
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 bg-black/60" />
-        <Dialog.Content className="fixed top-1/2 left-1/2 w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-10 text-white shadow-lg shadow-black/25">
+        <Dialog.Content className="fixed top-1/2 left-1/2 w-[435px] -translate-x-1/2 -translate-y-1/2 rounded-lg border border-zinc-700 bg-[#0d1117] py-8 px-10 text-white shadow-lg shadow-black/25">
           <Dialog.Title className="flex items-center gap-1 text-xl">
             New product
             <PlusSmallIcon className="h-7 w-7" />
@@ -167,7 +167,7 @@ export default function Warehouse(props: CountProps) {
                 <div>
                   <label
                     htmlFor="product"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Product
                   </label>
@@ -182,7 +182,7 @@ export default function Warehouse(props: CountProps) {
                 <div>
                   <label
                     htmlFor="category"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Category
                   </label>
@@ -199,7 +199,7 @@ export default function Warehouse(props: CountProps) {
                 <div>
                   <label
                     htmlFor="sku"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     SKU
                   </label>
@@ -214,7 +214,7 @@ export default function Warehouse(props: CountProps) {
                 <div>
                   <label
                     htmlFor="stock"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Stock
                   </label>
@@ -232,7 +232,7 @@ export default function Warehouse(props: CountProps) {
                 <div>
                   <label
                     htmlFor="price"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Price
                   </label>
@@ -247,7 +247,7 @@ export default function Warehouse(props: CountProps) {
                 <div>
                   <label
                     htmlFor="rating"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Rating
                   </label>
@@ -263,14 +263,14 @@ export default function Warehouse(props: CountProps) {
             </div>
             <div className="mt-10 flex justify-end gap-4">
               <Dialog.Close>
-                <button className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] pt-0 text-sm font-bold text-white duration-300  hover:bg-[#131922] hover:outline-none hover:transition-colors">
+                <button className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] text-sm font-medium text-white duration-300  hover:bg-[#131922] hover:outline-none hover:transition-colors">
                   Cancel
                 </button>
               </Dialog.Close>
 
               <button
                 type="submit"
-                className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] pt-0 text-sm font-bold text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors"
+                className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117]  text-sm font-medium text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors"
               >
                 Add product
               </button>

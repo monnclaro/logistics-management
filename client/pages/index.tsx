@@ -2,7 +2,11 @@ import Head from "next/head";
 import Link from "next/link";
 
 import { Nav } from "./components/Nav";
-import { ArrowUturnRightIcon } from "@heroicons/react/24/outline";
+import {
+  ClipboardDocumentListIcon,
+  Square3Stack3DIcon,
+  Squares2X2Icon,
+} from "@heroicons/react/24/outline";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/solid";
 
 const stats = {
@@ -50,6 +54,60 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-8">
+            <div>
+              <h1 className="pb-1 text-xl">Solutions</h1>
+              <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
+              <div className="flex gap-8">
+                <Link
+                  href="/tms/deliveries"
+                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
+                >
+                  <div className="flex justify-between">
+                    <h1 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
+                      <Squares2X2Icon className="h-6 w-6" />
+                      Transportation Management System (TMS)
+                    </h1>
+                  </div>
+                  <p className="text-justify text-sm font-normal text-gray-400">
+                    Solution that helps to plan, execute, and optimize the
+                    physical movement of goods, both incoming and outgoing, and
+                    making sure the shipment is compliant.
+                  </p>
+                </Link>
+                <Link
+                  href="wms/inventory"
+                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
+                >
+                  <div className="flex justify-between">
+                    <h5 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
+                      <Square3Stack3DIcon className="h-6 w-6" />
+                      Warehouse Management System (WMS)
+                    </h5>
+                  </div>
+                  <p className="text-justify text-sm font-normal text-gray-400">
+                    Solution that offers visibility into a business entire
+                    inventory and manages supply chain operations from the
+                    distribution center to the store shelf.
+                  </p>
+                </Link>
+                <Link
+                  href="/404"
+                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
+                >
+                  <div className="flex justify-between">
+                    <h5 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
+                      <ClipboardDocumentListIcon className="h-6 w-6" />
+                      Yard Management System (YMS)
+                    </h5>
+                  </div>
+                  <p className="text-justify text-sm font-normal text-gray-400">
+                    Solution designed to oversee the movement of trucks and
+                    trailers in the yard of a manufacturing facility, warehouse,
+                    or distribution center.
+                  </p>
+                </Link>
+              </div>
+            </div>
             <div className="flex flex-col">
               <h1 className="pb-1 text-xl">Revenue</h1>
               <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
@@ -63,7 +121,7 @@ export default function Home() {
                     >
                       <div key={stat.title}>
                         <h1
-                          className="text-md flex justify-between tracking-tight text-white"
+                          className="text-md flex justify-between tracking-tight text-gray-400"
                           key={stat.title}
                         >
                           {stat.title}
@@ -81,42 +139,6 @@ export default function Home() {
                     </div>
                   );
                 })}
-              </div>
-            </div>
-            <div>
-              <h1 className="pb-1 text-xl">Solutions</h1>
-              <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
-              <div className="flex gap-8">
-                <Link
-                  href="/tms/deliveries"
-                  className="block h-[160px] w-[420px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
-                >
-                  <div className="flex justify-between">
-                    <h5 className="text-md mb-2 font-bold tracking-tight text-white">
-                      Transportation Management System (TMS)
-                    </h5>
-                  </div>
-                  <p className="text-justify text-sm font-normal text-gray-400">
-                    Solution that helps to plan, execute, and optimize the
-                    physical movement of goods, both incoming and outgoing, and
-                    making sure the shipment is compliant.
-                  </p>
-                </Link>
-                <Link
-                  href="wms/inventory"
-                  className="block h-[160px] w-[420px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
-                >
-                  <div className="flex justify-between">
-                    <h5 className="text-md mb-2 font-bold tracking-tight text-white">
-                      Warehouse Management System (WMS)
-                    </h5>
-                  </div>
-                  <p className="text-justify text-sm font-normal text-gray-400">
-                    Solution that offers visibility into a business entire
-                    inventory and manages supply chain operations from the
-                    distribution center to the store shelf.
-                  </p>
-                </Link>
               </div>
             </div>
           </div>

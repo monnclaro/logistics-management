@@ -43,7 +43,7 @@ export const getServerSideProps = async () => {
 };
 
 const deletionNotify = () =>
-  toast.success("Successfully deleted!", {
+  toast.success("Delivery deleted!", {
     position: "bottom-right",
     style: {
       borderRadius: "10px",
@@ -174,7 +174,7 @@ export default function Transportation(props: CountProps) {
                 <div>
                   <label
                     htmlFor="carNumber"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Del. Number
                   </label>
@@ -189,7 +189,7 @@ export default function Transportation(props: CountProps) {
                 <div>
                   <label
                     htmlFor="dateTime"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Date / Time
                   </label>
@@ -207,7 +207,7 @@ export default function Transportation(props: CountProps) {
                 <div>
                   <label
                     htmlFor="tu"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     TU
                   </label>
@@ -222,7 +222,7 @@ export default function Transportation(props: CountProps) {
                 <div>
                   <label
                     htmlFor="carrier"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Carrier
                   </label>
@@ -239,7 +239,7 @@ export default function Transportation(props: CountProps) {
                 <div>
                   <label
                     htmlFor="shipTo"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Ship to
                   </label>
@@ -254,7 +254,7 @@ export default function Transportation(props: CountProps) {
                 <div>
                   <label
                     htmlFor="weight"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Weight
                   </label>
@@ -271,7 +271,7 @@ export default function Transportation(props: CountProps) {
                 <div>
                   <label
                     htmlFor="numberOfItems"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Number of items
                   </label>
@@ -286,7 +286,7 @@ export default function Transportation(props: CountProps) {
                 <div>
                   <label
                     htmlFor="pickingStatus"
-                    className="text-sm font-semibold text-white"
+                    className="text-xs font-semibold text-white"
                   >
                     Status
                   </label>
@@ -303,14 +303,14 @@ export default function Transportation(props: CountProps) {
 
             <div className="mt-10 flex justify-end gap-4">
               <Dialog.Close>
-                <button className="h flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] pt-0  text-sm font-bold text-white duration-300  hover:bg-[#131922] hover:outline-none hover:transition-colors">
+                <button className="h flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] text-sm font-medium text-white duration-300  hover:bg-[#131922] hover:outline-none hover:transition-colors">
                   Cancel
                 </button>
               </Dialog.Close>
 
               <button
                 type="submit"
-                className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] pt-0 text-sm font-bold text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors"
+                className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] text-sm font-medium text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors"
               >
                 Add deliver
               </button>
