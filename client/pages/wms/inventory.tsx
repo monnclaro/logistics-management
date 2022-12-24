@@ -262,18 +262,20 @@ export default function Warehouse(props: CountProps) {
               </div>
             </div>
             <div className="mt-10 flex justify-end gap-4">
-              <Dialog.Close>
-                <button className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] text-sm font-medium text-white duration-300  hover:bg-[#131922] hover:outline-none hover:transition-colors">
+              <div>
+                <Dialog.Close className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] text-sm font-medium text-white duration-300  hover:bg-[#131922] hover:outline-none hover:transition-colors">
                   Cancel
-                </button>
-              </Dialog.Close>
+                </Dialog.Close>
+              </div>
 
-              <button
-                type="submit"
-                className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117]  text-sm font-medium text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors"
-              >
-                Add product
-              </button>
+              <div>
+                <button
+                  type="submit"
+                  className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117]  text-sm font-medium text-white duration-300  hover:border-[#1f61fb] hover:bg-[#131922] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors"
+                >
+                  Add product
+                </button>
+              </div>
             </div>
           </form>
         </Dialog.Content>
@@ -316,10 +318,8 @@ export default function Warehouse(props: CountProps) {
 
                 <Dialog.Root open={open} onOpenChange={setIsOpen}>
                   {createDialog()}
-                  <Dialog.Trigger>
-                    <button className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm font-medium text-gray-400 duration-300 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
-                      New product
-                    </button>
+                  <Dialog.Trigger className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm font-medium text-gray-400 duration-300 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
+                    New product
                   </Dialog.Trigger>
                 </Dialog.Root>
               </div>

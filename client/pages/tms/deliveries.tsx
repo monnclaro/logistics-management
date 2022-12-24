@@ -302,10 +302,8 @@ export default function Transportation(props: CountProps) {
             </div>
 
             <div className="mt-10 flex justify-end gap-4">
-              <Dialog.Close>
-                <button className="h flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] text-sm font-medium text-white duration-300  hover:bg-[#131922] hover:outline-none hover:transition-colors">
-                  Cancel
-                </button>
+              <Dialog.Close className="h flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#0d1117] text-sm font-medium text-white duration-300  hover:bg-[#131922] hover:outline-none hover:transition-colors">
+                Cancel
               </Dialog.Close>
 
               <button
@@ -356,10 +354,8 @@ export default function Transportation(props: CountProps) {
                 </div>
                 <Dialog.Root open={open} onOpenChange={setIsOpen}>
                   {createDialog()}
-                  <Dialog.Trigger>
-                    <button className="duration-30000 flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm font-medium text-gray-400 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
-                      New delivery
-                    </button>
+                  <Dialog.Trigger className="duration-30000 flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm font-medium text-gray-400 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
+                    New delivery
                   </Dialog.Trigger>
                 </Dialog.Root>
               </div>
