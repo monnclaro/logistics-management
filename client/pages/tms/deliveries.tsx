@@ -333,7 +333,7 @@ export default function Transportation(props: CountProps) {
             <div className="flex flex-col">
               <div className="flex flex-row items-center gap-2 text-center align-middle">
                 <TableCellsIcon className="h-5 w-5 cursor-pointer text-white" />
-                <h1 className="font-bold text-white ">Deliveries</h1>
+                <h1 className="font-semibold text-white">Deliveries</h1>
               </div>
 
               <div className="pb-3 text-sm text-white">
@@ -381,7 +381,6 @@ export default function Transportation(props: CountProps) {
                   <th scope="col" className="p-4">
                     <div className="flex items-center">
                       <input
-                        id="checkbox-all-search"
                         type="checkbox"
                         className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
                       />

@@ -35,14 +35,14 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Overview</title>
+        <title>Logistics | Overview</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Nav />
 
-      <main className="h-screen w-screen pt-[65px] pl-48 text-white">
-        <div className="max-w-screen max-h-screen py-20 px-28">
+      <main className="h-screen w-screen pt-[65px] pl-48 text-white ">
+        <div className="max-w-screen max-h-screen py-10 px-28">
           <div className="my-6 flex flex-col">
             <div className="flex items-center gap-2">
               <h1 className="mb-1 text-2xl">Overview</h1>
@@ -53,22 +53,22 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 ">
             <div>
               <h1 className="pb-1 text-xl">Solutions</h1>
               <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
               <div className="flex gap-8">
                 <Link
                   href="/tms/deliveries"
-                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
+                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition duration-200 hover:scale-105 hover:shadow-md"
                 >
-                  <div className="flex justify-between">
+                  <div className="flex justify-between sm:text-center">
                     <h1 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
-                      <Squares2X2Icon className="h-6 w-6" />
+                      <Squares2X2Icon className="h-6 w-6 " />
                       Transportation Management System (TMS)
                     </h1>
                   </div>
-                  <p className="text-justify text-sm font-normal text-gray-400">
+                  <p className="text-sm font-normal text-gray-400 ">
                     Solution that helps to plan, execute, and optimize the
                     physical movement of goods, both incoming and outgoing, and
                     making sure the shipment is compliant.
@@ -78,13 +78,13 @@ export default function Home() {
                   href="wms/inventory"
                   className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
                 >
-                  <div className="flex justify-between">
+                  <div className="flex justify-between sm:text-center">
                     <h5 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
-                      <Square3Stack3DIcon className="h-6 w-6" />
+                      <Square3Stack3DIcon className="h-6 w-6 " />
                       Warehouse Management System (WMS)
                     </h5>
                   </div>
-                  <p className="text-justify text-sm font-normal text-gray-400">
+                  <p className="text-sm font-normal text-gray-400 ">
                     Solution that offers visibility into a business entire
                     inventory and manages supply chain operations from the
                     distribution center to the store shelf.
@@ -94,13 +94,13 @@ export default function Home() {
                   href="/404"
                   className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
                 >
-                  <div className="flex justify-between">
+                  <div className="flex justify-between sm:text-center">
                     <h5 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
-                      <ClipboardDocumentListIcon className="h-6 w-6" />
+                      <ClipboardDocumentListIcon className="h-6 w-6 " />
                       Yard Management System (YMS)
                     </h5>
                   </div>
-                  <p className="text-justify text-sm font-normal text-gray-400">
+                  <p className="text-sm font-normal text-gray-400 ">
                     Solution designed to oversee the movement of trucks and
                     trailers in the yard of a manufacturing facility, warehouse,
                     or distribution center.
@@ -108,7 +108,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col ">
               <h1 className="pb-1 text-xl">Revenue</h1>
               <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
               <div className="flex gap-8">
