@@ -170,7 +170,7 @@ export default function Warehouse(props: CountProps) {
                     htmlFor="product"
                     className="text-xs font-semibold text-white"
                   >
-                    Product
+                    Product:
                   </label>
                   <Input
                     type="text"
@@ -185,7 +185,7 @@ export default function Warehouse(props: CountProps) {
                     htmlFor="category"
                     className="text-xs font-semibold text-white"
                   >
-                    Category
+                    Category:
                   </label>
                   <Input
                     type="text"
@@ -202,7 +202,7 @@ export default function Warehouse(props: CountProps) {
                     htmlFor="sku"
                     className="text-xs font-semibold text-white"
                   >
-                    SKU
+                    SKU:
                   </label>
                   <Input
                     type="text"
@@ -217,7 +217,7 @@ export default function Warehouse(props: CountProps) {
                     htmlFor="stock"
                     className="text-xs font-semibold text-white"
                   >
-                    Stock
+                    Stock:
                   </label>
                   <Input
                     type="text"
@@ -235,7 +235,7 @@ export default function Warehouse(props: CountProps) {
                     htmlFor="price"
                     className="text-xs font-semibold text-white"
                   >
-                    Price
+                    Price:
                   </label>
                   <Input
                     type="text"
@@ -250,7 +250,7 @@ export default function Warehouse(props: CountProps) {
                     htmlFor="rating"
                     className="text-xs font-semibold text-white"
                   >
-                    Rating
+                    Rating:
                   </label>
                   <Input
                     type="text"

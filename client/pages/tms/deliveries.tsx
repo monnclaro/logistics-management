@@ -176,7 +176,7 @@ export default function Transportation(props: CountProps) {
                     htmlFor="carNumber"
                     className="text-xs font-semibold text-white"
                   >
-                    Del. Number
+                    Del. Number:
                   </label>
                   <Input
                     type="text"
@@ -191,7 +191,7 @@ export default function Transportation(props: CountProps) {
                     htmlFor="dateTime"
                     className="text-xs font-semibold text-white"
                   >
-                    Date / Time
+                    Date / Time:
                   </label>
                   <Input
                     type="datetime-local"
@@ -209,7 +209,7 @@ export default function Transportation(props: CountProps) {
                     htmlFor="tu"
                     className="text-xs font-semibold text-white"
                   >
-                    TU
+                    TU:
                   </label>
                   <Input
                     type="text"
@@ -224,7 +224,7 @@ export default function Transportation(props: CountProps) {
                     htmlFor="carrier"
                     className="text-xs font-semibold text-white"
                   >
-                    Carrier
+                    Carrier:
                   </label>
                   <Input
                     type="text"
@@ -241,7 +241,7 @@ export default function Transportation(props: CountProps) {
                     htmlFor="shipTo"
                     className="text-xs font-semibold text-white"
                   >
-                    Ship to
+                    Ship to:
                   </label>
                   <Input
                     type="text"
@@ -256,7 +256,7 @@ export default function Transportation(props: CountProps) {
                     htmlFor="weight"
                     className="text-xs font-semibold text-white"
                   >
-                    Weight
+                    Weight:
                   </label>
                   <Input
                     type="text"
@@ -273,7 +273,7 @@ export default function Transportation(props: CountProps) {
                     htmlFor="numberOfItems"
                     className="text-xs font-semibold text-white"
                   >
-                    Number of items
+                    Number of items:
                   </label>
                   <Input
                     type="text"
@@ -288,7 +288,7 @@ export default function Transportation(props: CountProps) {
                     htmlFor="pickingStatus"
                     className="text-xs font-semibold text-white"
                   >
-                    Status
+                    Status:
                   </label>
                   <Input
                     type="text"

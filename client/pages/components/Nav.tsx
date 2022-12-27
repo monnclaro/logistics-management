@@ -61,17 +61,18 @@ export function Nav() {
               </div>
               <div>
                 <Link
-                  href="/404"
+                  href="/tms/deliveries"
                   className={
-                    router.pathname == "/404"
+                    router.pathname == "/tms/deliveries"
                       ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-bold text-white"
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }
                 >
-                  <ClipboardDocumentListIcon className="ml-2 h-5 w-5 text-white" />
-                  <span className="ml-2 text-sm">Yard</span>
+                  <Squares2X2Icon className="ml-2 h-5 w-5 text-white" />
+                  <span className="ml-2 text-sm">Transportation</span>
                 </Link>
               </div>
+
               <div>
                 <Link
                   href="/wms/inventory"
@@ -87,15 +88,15 @@ export function Nav() {
               </div>
               <div>
                 <Link
-                  href="/tms/deliveries"
+                  href="/404"
                   className={
-                    router.pathname == "/tms/deliveries"
+                    router.pathname == "/404"
                       ? "mt-2 flex items-center bg-[#1f61fb] p-2 text-base font-bold text-white"
                       : "mt-2 flex items-center p-2 text-base font-normal text-white hover:bg-[#1f61fb]"
                   }
                 >
-                  <Squares2X2Icon className="ml-2 h-5 w-5 text-white" />
-                  <span className="ml-2 text-sm">Transportation</span>
+                  <ClipboardDocumentListIcon className="ml-2 h-5 w-5 text-white" />
+                  <span className="ml-2 text-sm">Yard</span>
                 </Link>
               </div>
             </li>
