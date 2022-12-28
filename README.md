@@ -2,7 +2,8 @@
 Logistics Management
 </h2>
 
-<p align="center">`Next.js`, `Express`, `Prisma`, `Tailwind` </p>
+<div align="center">
+-`Next.js`, `Express`, `Prisma`, `Tailwind` </div>
 <img alt="" src="./client/public/Overview.PNG" />
 <img alt="" src="./client/public/TMS.PNG" />
 <img alt="" src="./client/public/TMSModal.PNG" />
