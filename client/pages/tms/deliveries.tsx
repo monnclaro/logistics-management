@@ -47,14 +47,13 @@ const deletionNotify = () =>
     position: "bottom-right",
     style: {
       borderRadius: "10px",
-      background: "#161b22",
-      borderColor: "#27272A",
+      background: "#1f61fb",
       color: "#fff",
       fontSize: "15px",
     },
     iconTheme: {
-      primary: "#1f61fb",
-      secondary: "#fff",
+      primary: "#FFF",
+      secondary: "#1f61fb",
     },
   });
 
@@ -63,14 +62,13 @@ const deleteErrorNotify = () =>
     position: "bottom-right",
     style: {
       borderRadius: "10px",
-      background: "#161b22",
-      borderColor: "#27272A",
+      background: "#FF0000",
       color: "#fff",
       fontSize: "15px",
     },
     iconTheme: {
-      primary: "#FF0000",
-      secondary: "#fff",
+      primary: "#FFF",
+      secondary: "#FF0000",
     },
   });
 
@@ -79,14 +77,13 @@ const creationNotify = () =>
     position: "bottom-right",
     style: {
       borderRadius: "10px",
-      background: "#161b22",
-      borderColor: "#27272A",
+      background: "#1f61fb",
       color: "#fff",
       fontSize: "15px",
     },
     iconTheme: {
-      primary: "#1f61fb",
-      secondary: "#fff",
+      primary: "#FFF",
+      secondary: "#1f61fb",
     },
   });
 
@@ -95,14 +92,13 @@ const creationErrorNotify = () =>
     position: "bottom-right",
     style: {
       borderRadius: "10px",
-      background: "#161b22",
-      borderColor: "#27272A",
+      background: "#FF0000",
       color: "#fff",
       fontSize: "15px",
     },
     iconTheme: {
-      primary: "#FF0000",
-      secondary: "#fff",
+      primary: "#FFF",
+      secondary: "#FF0000",
     },
   });
 

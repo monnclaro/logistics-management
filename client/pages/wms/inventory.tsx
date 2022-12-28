@@ -12,7 +12,6 @@ import {
   MagnifyingGlassIcon,
   TableCellsIcon,
 } from "@heroicons/react/24/outline";
-import Link from "next/link";
 
 type ItemProps = {
   id: string;
@@ -46,13 +45,13 @@ const deletionNotify = () =>
     position: "bottom-right",
     style: {
       borderRadius: "10px",
-      background: "#161b22",
+      background: "#1f61fb",
       color: "#fff",
       fontSize: "15px",
     },
     iconTheme: {
-      primary: "#1f61fb",
-      secondary: "#fff",
+      primary: "#FFF",
+      secondary: "#1f61fb",
     },
   });
 
@@ -61,13 +60,13 @@ const deleteErrorNotify = () =>
     position: "bottom-right",
     style: {
       borderRadius: "10px",
-      background: "#161b22",
+      background: "#FF0000",
       color: "#fff",
       fontSize: "15px",
     },
     iconTheme: {
-      primary: "#FF0000",
-      secondary: "#fff",
+      primary: "#FFF",
+      secondary: "#FF0000",
     },
   });
 
@@ -76,13 +75,13 @@ const creationNotify = () =>
     position: "bottom-right",
     style: {
       borderRadius: "10px",
-      background: "#161b22",
+      background: "#1f61fb",
       color: "#fff",
       fontSize: "15px",
     },
     iconTheme: {
-      primary: "#1f61fb",
-      secondary: "#fff",
+      primary: "#FFF",
+      secondary: "#1f61fb",
     },
   });
 
@@ -91,13 +90,13 @@ const creationErrorNotify = () =>
     position: "bottom-right",
     style: {
       borderRadius: "10px",
-      background: "#161b22",
+      background: "#FF0000",
       color: "#fff",
       fontSize: "15px",
     },
     iconTheme: {
-      primary: "#FF0000",
-      secondary: "#fff",
+      primary: "#FFF",
+      secondary: "#FF0000",
     },
   });
 
@@ -396,11 +395,9 @@ export default function Warehouse(props: CountProps) {
                         <td className="w-4 p-4">
                           <div className="flex items-center">
                             <input
-                              id="checkbox-table-search-2"
                               type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                              className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600  focus:ring-2 focus:ring-blue-600  dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
                             />
-                            <label className="sr-only">checkbox</label>
                           </div>
                         </td>
                         <th
