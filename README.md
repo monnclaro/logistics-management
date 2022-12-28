@@ -1,7 +1,7 @@
 <div align="center">
-<h2>
+<h1>
 Logistics Management
-</h2>
+</h1>
 
 `Next.js` `Express` `Prisma` `Tailwind`
 
