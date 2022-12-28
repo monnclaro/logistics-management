@@ -1,8 +1,8 @@
-<h1 align="center">
+<h2 align="center">
 Logistics Management
-</h1>
+</h2>
 
-<p align="center">Application that performs CRUD operations, built with Next.js, Prisma and Tailwind.</p>
+<p align="center">`Next.js`, `Express`, `Prisma`, `Tailwind` </p>
 <img alt="" src="./client/public/Overview.PNG" />
 <img alt="" src="./client/public/TMS.PNG" />
 <img alt="" src="./client/public/TMSModal.PNG" />

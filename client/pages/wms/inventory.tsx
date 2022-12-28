@@ -25,19 +25,7 @@ type ItemProps = {
 };
 
 type CountProps = {
-  itemsCount: number;
-};
-
-export const getServerSideProps = async () => {
-  const itemsCountResponse = await axios.get(
-    "http://localhost:4000/warehouseitems/count"
-  );
-
-  return {
-    props: {
-      itemsCount: itemsCountResponse.data.count,
-    },
-  };
+  count: number;
 };
 
 const deletionNotify = () =>
@@ -100,10 +88,17 @@ const creationErrorNotify = () =>
     },
   });
 
-export default function Warehouse(props: CountProps) {
+export default function Warehouse() {
   const [items, setItems] = useState<ItemProps[]>([]);
+  const [count, setCount] = useState<CountProps>();
   const [open, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    axios("http://localhost:4000/warehouseitems/count").then((response) =>
+      setCount(response.data)
+    );
+  }, []);
 
   useEffect(() => {
     axios("http://localhost:4000/warehouseitems").then((response) =>
@@ -131,6 +126,7 @@ export default function Warehouse(props: CountProps) {
       );
       setItems([response.data, ...items]);
       setIsOpen(false);
+
       creationNotify();
     } catch (error) {
       console.error(error);
@@ -142,6 +138,7 @@ export default function Warehouse(props: CountProps) {
     try {
       axios.delete(`http://localhost:4000/warehouseitems/${id}`);
       setItems(items.filter((p) => p.id !== id));
+
       deletionNotify();
     } catch (error) {
       console.log(error);
@@ -329,7 +326,7 @@ export default function Warehouse(props: CountProps) {
               <section className="max-w-[200px] border-[1px] border-zinc-700 px-16 py-6 text-xs font-bold shadow-sm">
                 <p>Products</p>
                 <p className="text-xl font-bold text-[#f78166]">
-                  {props.itemsCount}
+                  {count?.count}
                 </p>
               </section>
               <section className="max-w-[200px] border-[1px] border-zinc-700 p-6  px-16 text-xs font-bold shadow-sm">

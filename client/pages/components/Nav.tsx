@@ -17,7 +17,7 @@ export function Nav() {
   return (
     <div className="fixed top-0 left-0">
       <header className="fixed top-0 flex w-full items-center justify-between bg-[#161b22] px-8 py-4 text-center">
-        <Bars3Icon className="h-6 w-6 cursor-pointer text-white hover:text-[#1f61fb]" />
+        <Bars3Icon className="h-6 w-6 cursor-pointer text-white hover:text-[#c7c7c7]" />
 
         <div className="relative">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-center">
@@ -30,7 +30,7 @@ export function Nav() {
           />
         </div>
 
-        <BellIcon className="h-6 w-6 cursor-pointer text-white hover:text-[#1f61fb]" />
+        <BellIcon className="h-6 w-6 cursor-pointer text-white hover:text-[#c7c7c7]" />
       </header>
 
       <aside className="fixed mt-[62px] h-full w-48 border-r border-r-gray-700 bg-[#0d1117]">

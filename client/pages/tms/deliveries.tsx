@@ -27,19 +27,7 @@ type DeliveryProps = {
 };
 
 type CountProps = {
-  deliveriesCount: number;
-};
-
-export const getServerSideProps = async () => {
-  const deliveriesCountResponse = await axios.get(
-    "http://localhost:4000/deliveryitems/count"
-  );
-
-  return {
-    props: {
-      deliveriesCount: deliveriesCountResponse.data.count,
-    },
-  };
+  count: number;
 };
 
 const deletionNotify = () =>
@@ -102,10 +90,17 @@ const creationErrorNotify = () =>
     },
   });
 
-export default function Transportation(props: CountProps) {
+export default function Transportation() {
   const [items, setItems] = useState<DeliveryProps[]>([]);
+  const [count, setCount] = useState<CountProps>();
   const [open, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    axios("http://localhost:4000/deliveryitems/count").then((response) =>
+      setCount(response.data)
+    );
+  }, []);
 
   useEffect(() => {
     axios("http://localhost:4000/deliveryitems").then((response) =>
@@ -118,6 +113,7 @@ export default function Transportation(props: CountProps) {
       axios.delete(`http://localhost:4000/deliveryitems/${id}`);
 
       setItems(items.filter((p) => p.id !== id));
+
       deletionNotify();
     } catch (error) {
       console.log(error);
@@ -145,6 +141,7 @@ export default function Transportation(props: CountProps) {
 
       setItems([response.data, ...items]);
       setIsOpen(false);
+
       creationNotify();
     } catch (error) {
       console.log(error);
@@ -323,7 +320,7 @@ export default function Transportation(props: CountProps) {
       </Head>
       <Nav />
       <Toaster />
-      <div className="h-screen w-screen pt-[82px] pl-48">
+      <div className="max-h-screen w-screen pt-[82px] pl-48">
         <div className="max-w-screen max-h-screen py-20 px-28">
           <div className="flex justify-between pb-12">
             <div className="flex flex-col">
@@ -360,7 +357,7 @@ export default function Transportation(props: CountProps) {
               <section className="max-w-[200px] border-[1px] border-zinc-700 px-16 py-6 text-xs font-bold shadow-sm">
                 <p>Deliveries</p>
                 <p className="text-xl font-bold text-[#f78166]">
-                  {props.deliveriesCount}
+                  {count?.count}
                 </p>
               </section>
               <section className="max-w-[200px] border-[1px] border-zinc-700 p-6  px-16 text-xs font-bold shadow-sm">
@@ -370,7 +367,7 @@ export default function Transportation(props: CountProps) {
             </div>
           </div>
 
-          <div className="h-[470px] overflow-y-scroll shadow-md sm:rounded-lg">
+          <div className="max-h-[470px] overflow-y-scroll shadow-md sm:rounded-lg">
             <table className="w-full text-left text-sm text-gray-400  ">
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white ">
                 <tr>
