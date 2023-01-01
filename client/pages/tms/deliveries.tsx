@@ -377,6 +377,7 @@ export default function Transportation() {
                         type="checkbox"
                         className="h-4 w-4 rounded bg-[#12151b] accent-[#12151b]"
                         checked
+                        readOnly
                       />
                     </div>
                   </th>
