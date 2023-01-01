@@ -31,6 +31,28 @@ const stats = {
   },
 };
 
+const stats2 = {
+  Income: {
+    title: "Delivered on time",
+    value: "500 items",
+  },
+
+  Spending: {
+    title: "Traveled miles",
+    value: "250 kilometers",
+  },
+
+  StockOnHand: {
+    title: "Avg loading time",
+    value: "25 minutes",
+  },
+
+  MRR: {
+    title: "Avg loading weight",
+    value: "12 tons",
+  },
+};
+
 export default function Home() {
   return (
     <div>
@@ -114,6 +136,35 @@ export default function Home() {
               <div className="flex gap-8">
                 {Object.keys(stats).map((key) => {
                   const stat = stats[key as keyof typeof stats];
+                  return (
+                    <div
+                      className="block h-[130px] w-[350px] rounded-lg border border-zinc-800 bg-[#161b22] px-8 py-8 shadow-md hover:shadow-md"
+                      key={stat.value}
+                    >
+                      <div key={stat.title}>
+                        <h1
+                          className="text-md flex justify-between tracking-tight text-gray-400"
+                          key={stat.title}
+                        >
+                          {stat.title}
+                          <EllipsisVerticalIcon className="h-5 w-5 cursor-pointer text-white" />
+                        </h1>
+                      </div>
+                      <div>
+                        <h1
+                          className="pt-1 text-xl font-bold tracking-tight text-white"
+                          key={stat.value}
+                        >
+                          {stat.value}
+                        </h1>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="flex gap-8 pt-7">
+                {Object.keys(stats2).map((key) => {
+                  const stat = stats2[key as keyof typeof stats2];
                   return (
                     <div
                       className="block h-[130px] w-[350px] rounded-lg border border-zinc-800 bg-[#161b22] px-8 py-8 shadow-md hover:shadow-md"

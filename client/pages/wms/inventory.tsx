@@ -303,7 +303,7 @@ export default function Warehouse() {
               <div className="flex gap-6">
                 <div className="relative">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-center">
-                    <MagnifyingGlassIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
                   </div>
                   <input
                     type="text"
@@ -337,16 +337,16 @@ export default function Warehouse() {
           </div>
 
           <div className="h-[475px] overflow-y-scroll shadow-lg sm:rounded-lg">
-            <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400">
+            <table className="w-full text-left text-sm text-gray-400">
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white">
                 <tr>
                   <th scope="col" className="p-4">
                     <div className="flex items-center">
                       <input
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        className="h-4 w-4 rounded bg-[#12151b] accent-[#12151b]"
+                        checked
                       />
-                      <label className="sr-only">checkbox</label>
                     </div>
                   </th>
                   <th scope="col" className="py-3 px-6">
@@ -393,7 +393,7 @@ export default function Warehouse() {
                           <div className="flex items-center">
                             <input
                               type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600  focus:ring-2 focus:ring-blue-600  dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
+                              className="h-4 w-4 rounded border-gray-300 bg-gray-100  text-blue-600 accent-[#1f61fb] ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
                             />
                           </div>
                         </td>

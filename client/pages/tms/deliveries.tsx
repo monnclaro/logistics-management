@@ -336,7 +336,7 @@ export default function Transportation() {
               <div className="flex gap-6">
                 <div className="relative">
                   <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-center">
-                    <MagnifyingGlassIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+                    <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
                   </div>
                   <input
                     type="text"
@@ -362,7 +362,7 @@ export default function Transportation() {
               </section>
               <section className="max-w-[200px] border-[1px] border-zinc-700 p-6  px-16 text-xs font-bold shadow-sm">
                 <p>Handed out</p>
-                <p className="text-xl font-bold text-[#f78166]">5</p>
+                <p className="text-xl font-bold text-[#f78166]">132</p>
               </section>
             </div>
           </div>
@@ -375,9 +375,9 @@ export default function Transportation() {
                     <div className="flex items-center">
                       <input
                         type="checkbox"
-                        className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                        className="h-4 w-4 rounded bg-[#12151b] accent-[#12151b]"
+                        checked
                       />
-                      <label className="sr-only">checkbox</label>
                     </div>
                   </th>
                   <th scope="col" className="py-3 px-6">
@@ -434,7 +434,7 @@ export default function Transportation() {
                             <input
                               id="checkbox-table-search-2"
                               type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-blue-600 focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-blue-600"
+                              className="h-4 w-4 rounded border-gray-300 bg-gray-100  text-blue-600 accent-[#1f61fb] ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
                             />
                             <label className="sr-only">checkbox</label>
                           </div>

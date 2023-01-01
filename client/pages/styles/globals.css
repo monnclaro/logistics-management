@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply overflow-x-hidden bg-[#0d1117] font-Inter;
+    @apply bg-[#0d1117] font-Inter;
   }
 }
 
@@ -14,10 +14,10 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-image: linear-gradient(#00000 36.97%, #00000 64.97%);
+  background-color: #1f61fb;
 }

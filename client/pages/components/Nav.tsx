@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import * as Popover from "@radix-ui/react-popover";
 import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import {
   ChevronDownIcon,
@@ -12,11 +13,30 @@ import {
   ClipboardDocumentListIcon,
 } from "@heroicons/react/24/outline";
 
+const NotificationsPopover = () => (
+  <Popover.Portal>
+    <Popover.Content className="mr-14 h-[230px] w-[260px] border border-zinc-800 bg-[#161b22] text-white shadow-md">
+      <div className="bg-[#12151b]">
+        <p className="p-4 font-bold">Notifications</p>
+      </div>
+      <p className="align-center mt-6 p-12 pt-6 text-center text-sm">
+        You dont have any notification at the moment.
+      </p>
+      <Popover.Close
+        className="PopoverClose"
+        aria-label="Close"
+      ></Popover.Close>
+      <Popover.Arrow className="PopoverArrow" />
+    </Popover.Content>
+  </Popover.Portal>
+);
+
 export function Nav() {
   const router = useRouter();
+
   return (
     <div className="fixed top-0 left-0">
-      <header className="fixed top-0 flex w-full items-center justify-between bg-[#161b22] px-8 py-4 text-center">
+      <header className="fixed top-0 flex w-full items-center justify-between bg-[#161b22] px-16 py-4 text-center">
         <Bars3Icon className="h-6 w-6 cursor-pointer text-white hover:text-[#c7c7c7]" />
 
         <div className="relative">
@@ -25,12 +45,16 @@ export function Nav() {
           </div>
           <input
             type="text"
-            className="block w-auto rounded-md border border-gray-600 bg-[#0d1117] py-1 pl-10 text-sm text-[#b4bac0] placeholder-[#8B949E] focus:outline-none"
-            placeholder="Search for something"
+            className="block w-auto rounded-md border border-gray-600 bg-[#0d1117] py-1 pl-10 text-sm text-white placeholder-[#8B949E] focus:outline-none"
+            placeholder="Search for something..."
           />
         </div>
-
-        <BellIcon className="h-6 w-6 cursor-pointer text-white hover:text-[#c7c7c7]" />
+        <Popover.Root>
+          <Popover.Trigger asChild>
+            <BellIcon className="h-6 w-6 cursor-pointer text-white hover:text-[#c7c7c7]" />
+          </Popover.Trigger>
+          <NotificationsPopover />
+        </Popover.Root>
       </header>
 
       <aside className="fixed mt-[62px] h-full w-48 border-r border-r-gray-700 bg-[#0d1117]">
