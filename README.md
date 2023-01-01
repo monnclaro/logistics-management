@@ -16,5 +16,5 @@ Logistics Management
 Run the following command in both directories to start the application.
 
 ```bash
-$ npm run start
+$ npm run dev
 ```
