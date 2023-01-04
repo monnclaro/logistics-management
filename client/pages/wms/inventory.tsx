@@ -159,7 +159,7 @@ export default function Warehouse() {
             Fill in all fields to create a new product in our database.
           </Dialog.Description>
           <form onSubmit={handleCreateItem} className="mt-6">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               <div className="flex justify-between">
                 <div>
                   <label
@@ -336,7 +336,7 @@ export default function Warehouse() {
             </div>
           </div>
 
-          <div className="h-[475px] overflow-y-scroll shadow-lg sm:rounded-lg">
+          <div className="h-[475px] overflow-y-scroll shadow-lg">
             <table className="w-full text-left text-sm text-gray-400">
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white">
                 <tr>

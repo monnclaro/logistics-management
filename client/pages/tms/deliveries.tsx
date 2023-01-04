@@ -159,7 +159,8 @@ export default function Transportation() {
             <PlusSmallIcon className="h-7 w-7" />
           </Dialog.Title>
           <Dialog.Description className="pt-0.5 text-sm text-[#8B949E]">
-            Fill in all fields to create a new delivery in our database.
+            Fill in all fields to create a new delivery <br />
+            in our database.
           </Dialog.Description>
           <form onSubmit={handleCreateItem} className="mt-6">
             <div className="flex flex-col gap-4">
@@ -184,7 +185,7 @@ export default function Transportation() {
                     htmlFor="dateTime"
                     className="text-xs font-semibold text-white"
                   >
-                    Date / Time:
+                    Date - Time:
                   </label>
                   <Input
                     type="datetime-local"
@@ -320,7 +321,7 @@ export default function Transportation() {
       </Head>
       <Nav />
       <Toaster />
-      <div className="max-h-screen w-screen pt-[82px] pl-48">
+      <div className="h-screen w-screen pt-[82px] pl-48">
         <div className="max-w-screen max-h-screen py-20 px-28">
           <div className="flex justify-between pb-12">
             <div className="flex flex-col">
@@ -347,7 +348,7 @@ export default function Transportation() {
                 </div>
                 <Dialog.Root open={open} onOpenChange={setIsOpen}>
                   {createDialog()}
-                  <Dialog.Trigger className="duration-30000 flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm font-medium text-gray-400 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
+                  <Dialog.Trigger className="flex h-[40px] w-[120px] items-center justify-center gap-1 rounded-lg border border-zinc-700 bg-[#161b22] pt-0 text-sm font-medium text-gray-400 hover:border-[#1f61fb] hover:text-white  hover:outline-none hover:ring-1 hover:ring-[#1f61fb] hover:transition-colors">
                     New delivery
                   </Dialog.Trigger>
                 </Dialog.Root>
@@ -367,7 +368,7 @@ export default function Transportation() {
             </div>
           </div>
 
-          <div className="max-h-[470px] overflow-y-scroll shadow-md sm:rounded-lg">
+          <div className="h-[475px] overflow-y-scroll shadow-md">
             <table className="w-full text-left text-sm text-gray-400  ">
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white ">
                 <tr>
@@ -433,11 +434,9 @@ export default function Transportation() {
                         <td className="w-4 p-4">
                           <div className="flex items-center">
                             <input
-                              id="checkbox-table-search-2"
                               type="checkbox"
                               className="h-4 w-4 rounded border-gray-300 bg-gray-100  text-blue-600 accent-[#1f61fb] ring-offset-gray-800 focus:ring-2 focus:ring-blue-600"
                             />
-                            <label className="sr-only">checkbox</label>
                           </div>
                         </td>
                         <th
@@ -447,7 +446,7 @@ export default function Transportation() {
                           {items.carNumber}
                         </th>
                         <td className="py-4 px-6">
-                          {items.dateTime.toString()}
+                          {items.dateTime.toString().replace("T", " - ")}
                         </td>
                         <td className="py-4 px-6">{items.tu}</td>
                         <td className="py-4 px-6">{items.carrier}</td>

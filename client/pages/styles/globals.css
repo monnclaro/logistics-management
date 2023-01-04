@@ -4,8 +4,12 @@
 
 @layer base {
   body {
-    @apply bg-[#0d1117] font-Inter;
+    @apply overflow-x-hidden bg-[#0d1117] font-Inter;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar-track {
