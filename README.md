@@ -1,7 +1,3 @@
-<h1 align="center">
-Logistics Management
-</h1>
-
 <div align="center">
 
 `Next.js` `Express` `Prisma` `Tailwind` `Radix UI`
