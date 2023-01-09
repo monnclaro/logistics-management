@@ -2,18 +2,24 @@ import axios from "axios";
 import Head from "next/head";
 import { useState, useEffect, FormEvent } from "react";
 
-import { Nav } from "../components/Nav";
-import { Input } from "../components/Input";
+import { Nav } from "../../components/Nav";
+import { Input } from "../../components/Input";
 
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import * as Dialog from "@radix-ui/react-dialog";
 import { PlusSmallIcon } from "@heroicons/react/24/solid";
 import {
   MagnifyingGlassIcon,
   TableCellsIcon,
 } from "@heroicons/react/24/outline";
+import {
+  deletionNotify,
+  deleteErrorNotify,
+  creationNotify,
+  creationErrorNotify,
+} from "../../utils/notifications";
 
-type DeliveryProps = {
+type TableProps = {
   id: string;
   carNumber: string;
   dateTime: string;
@@ -30,68 +36,8 @@ type CountProps = {
   count: number;
 };
 
-const deletionNotify = () =>
-  toast.success("Delivery deleted!", {
-    position: "bottom-right",
-    style: {
-      borderRadius: "10px",
-      background: "#1f61fb",
-      color: "#fff",
-      fontSize: "15px",
-    },
-    iconTheme: {
-      primary: "#FFF",
-      secondary: "#1f61fb",
-    },
-  });
-
-const deleteErrorNotify = () =>
-  toast.error("This didn't work.", {
-    position: "bottom-right",
-    style: {
-      borderRadius: "10px",
-      background: "#FF0000",
-      color: "#fff",
-      fontSize: "15px",
-    },
-    iconTheme: {
-      primary: "#FFF",
-      secondary: "#FF0000",
-    },
-  });
-
-const creationNotify = () =>
-  toast.success("Successfully created!", {
-    position: "bottom-right",
-    style: {
-      borderRadius: "10px",
-      background: "#1f61fb",
-      color: "#fff",
-      fontSize: "15px",
-    },
-    iconTheme: {
-      primary: "#FFF",
-      secondary: "#1f61fb",
-    },
-  });
-
-const creationErrorNotify = () =>
-  toast.error("This didn't work.", {
-    position: "bottom-right",
-    style: {
-      borderRadius: "10px",
-      background: "#FF0000",
-      color: "#fff",
-      fontSize: "15px",
-    },
-    iconTheme: {
-      primary: "#FFF",
-      secondary: "#FF0000",
-    },
-  });
-
 export default function Transportation() {
-  const [items, setItems] = useState<DeliveryProps[]>([]);
+  const [items, setItems] = useState<TableProps[]>([]);
   const [count, setCount] = useState<CountProps>();
   const [open, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");

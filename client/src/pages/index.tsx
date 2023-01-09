@@ -1,13 +1,14 @@
 import Head from "next/head";
 import Link from "next/link";
 
-import { Nav } from "./components/Nav";
+import { Nav } from "../components/Nav";
+
+import { EllipsisVerticalIcon } from "@heroicons/react/24/solid";
 import {
   ClipboardDocumentListIcon,
   Square3Stack3DIcon,
   Squares2X2Icon,
 } from "@heroicons/react/24/outline";
-import { EllipsisVerticalIcon } from "@heroicons/react/24/solid";
 
 const stats = {
   Income: {
@@ -29,25 +30,22 @@ const stats = {
     title: "MRR",
     value: "$8.453,405,00",
   },
-};
-
-const stats2 = {
-  Income: {
+  Delivered: {
     title: "Delivered on time",
     value: "500 items",
   },
 
-  Spending: {
+  Traveled: {
     title: "Traveled miles",
     value: "250 kilometers",
   },
 
-  StockOnHand: {
+  AvgTime: {
     title: "Avg loading time",
     value: "25 minutes",
   },
 
-  MRR: {
+  AvgWeight: {
     title: "Avg loading weight",
     value: "12 tons",
   },
@@ -82,7 +80,7 @@ export default function Home() {
               <div className="flex gap-8">
                 <Link
                   href="/tms/deliveries"
-                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition duration-200 hover:scale-105 hover:shadow-md"
+                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition duration-200 hover:shadow-md"
                 >
                   <div className="flex justify-between sm:text-center">
                     <h1 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
@@ -98,7 +96,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="wms/inventory"
-                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
+                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:shadow-md"
                 >
                   <div className="flex justify-between sm:text-center">
                     <h5 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
@@ -113,8 +111,8 @@ export default function Home() {
                   </p>
                 </Link>
                 <Link
-                  href="/404"
-                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-md"
+                  href="#"
+                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:shadow-md"
                 >
                   <div className="flex justify-between sm:text-center">
                     <h5 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
@@ -133,38 +131,9 @@ export default function Home() {
             <div className="flex flex-col ">
               <h1 className="pb-1 text-xl">Revenue</h1>
               <div className="mb-4 h-[1px] w-[100px] bg-gray-400"></div>
-              <div className="flex gap-8">
+              <div className="grid grid-cols-4 gap-y-6">
                 {Object.keys(stats).map((key) => {
                   const stat = stats[key as keyof typeof stats];
-                  return (
-                    <div
-                      className="block h-[130px] w-[350px] rounded-lg border border-zinc-800 bg-[#161b22] px-8 py-8 shadow-md hover:shadow-md"
-                      key={stat.value}
-                    >
-                      <div key={stat.title}>
-                        <h1
-                          className="text-md flex justify-between tracking-tight text-gray-400"
-                          key={stat.title}
-                        >
-                          {stat.title}
-                          <EllipsisVerticalIcon className="h-5 w-5 cursor-pointer text-white" />
-                        </h1>
-                      </div>
-                      <div>
-                        <h1
-                          className="pt-1 text-xl font-bold tracking-tight text-white"
-                          key={stat.value}
-                        >
-                          {stat.value}
-                        </h1>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="flex gap-8 pt-7">
-                {Object.keys(stats2).map((key) => {
-                  const stat = stats2[key as keyof typeof stats2];
                   return (
                     <div
                       className="block h-[130px] w-[350px] rounded-lg border border-zinc-800 bg-[#161b22] px-8 py-8 shadow-md hover:shadow-md"
