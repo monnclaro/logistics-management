@@ -80,11 +80,11 @@ export default function Home() {
               <div className="flex gap-8">
                 <Link
                   href="/tms/deliveries"
-                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition duration-200 hover:shadow-md"
+                  className="group block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition duration-500 hover:scale-95 hover:shadow-md"
                 >
                   <div className="flex justify-between sm:text-center">
                     <h1 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
-                      <Squares2X2Icon className="h-6 w-6 " />
+                      <Squares2X2Icon className="h-6 w-6 group-hover:animate-pulse" />
                       Transportation Management System (TMS)
                     </h1>
                   </div>
@@ -96,11 +96,11 @@ export default function Home() {
                 </Link>
                 <Link
                   href="wms/inventory"
-                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:shadow-md"
+                  className="group block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-500 hover:scale-95 hover:shadow-md"
                 >
                   <div className="flex justify-between sm:text-center">
                     <h5 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
-                      <Square3Stack3DIcon className="h-6 w-6 " />
+                      <Square3Stack3DIcon className="h-6 w-6 group-hover:animate-pulse" />
                       Warehouse Management System (WMS)
                     </h5>
                   </div>
@@ -112,11 +112,11 @@ export default function Home() {
                 </Link>
                 <Link
                   href="#"
-                  className="block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-200 hover:shadow-md"
+                  className="group block h-[160px] w-[475px] rounded-lg border border-zinc-800 bg-[#161b22] py-8 px-8 shadow-md transition-all duration-500 hover:scale-95 hover:shadow-md"
                 >
                   <div className="flex justify-between sm:text-center">
                     <h5 className="text-md mb-2 flex gap-2 font-bold tracking-tight text-white">
-                      <ClipboardDocumentListIcon className="h-6 w-6 " />
+                      <ClipboardDocumentListIcon className="h-6 w-6 group-hover:animate-pulse" />
                       Yard Management System (YMS)
                     </h5>
                   </div>

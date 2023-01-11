@@ -314,8 +314,8 @@ export default function Transportation() {
             </div>
           </div>
 
-          <div className="h-[475px] overflow-y-scroll shadow-md">
-            <table className="w-full text-left text-sm text-gray-400  ">
+          <div className="h-[500px] overflow-y-scroll shadow-md">
+            <table className="w-full text-left text-sm text-gray-400">
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white ">
                 <tr>
                   <th scope="col" className="p-4">

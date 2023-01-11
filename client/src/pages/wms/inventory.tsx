@@ -282,7 +282,7 @@ export default function Warehouse() {
             </div>
           </div>
 
-          <div className="h-[475px] overflow-y-scroll shadow-lg">
+          <div className="h-[500px] overflow-y-scroll shadow-lg">
             <table className="w-full text-left text-sm text-gray-400">
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white">
                 <tr>
