@@ -10,7 +10,7 @@ export default function Login() {
       </Head>
       <section>
         <div className="mx-auto flex flex-col items-center justify-center px-6 py-8 md:h-screen lg:py-0">
-          <div className="w-full rounded-lg border-zinc-800 bg-[#161b22] shadow  dark:border sm:max-w-md md:mt-0 xl:p-0">
+          <div className="w-full rounded-lg border border-zinc-800 bg-[#161b22] shadow sm:max-w-md md:mt-0 xl:p-0">
             <div className="space-y-4 p-6 sm:p-8 md:space-y-6">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
                 Sign in to your account
@@ -67,7 +67,7 @@ export default function Login() {
                   </a>
                 </div>
                 <Link href={"/"}>
-                  <button className="mt-6 w-full rounded-lg bg-[#1f61fb] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-4">
+                  <button className="mt-6 w-full rounded-lg bg-[#1f61fb] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-700">
                     Sign in
                   </button>
                 </Link>
