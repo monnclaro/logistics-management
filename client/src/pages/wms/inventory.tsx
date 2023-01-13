@@ -253,7 +253,7 @@ export default function Warehouse() {
                   </div>
                   <input
                     type="text"
-                    className="block w-auto rounded-lg border border-zinc-700 bg-[#0d1117] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#1f61fb] focus:outline-none focus:ring-1 focus:ring-[#1f61fb] sm:text-sm"
+                    className="block w-auto rounded-lg border border-zinc-700 bg-[#0d1117] p-2.5 pl-10 text-sm  text-white placeholder-gray-400 focus:border-[#1f61fb] focus:outline-none focus:ring-1 focus:ring-[#1f61fb]"
                     placeholder="Search products"
                     onChange={(e) => setQuery(e.target.value)}
                   />
@@ -282,7 +282,7 @@ export default function Warehouse() {
             </div>
           </div>
 
-          <div className="h-[500px] overflow-y-scroll shadow-lg">
+          <div className="h-[530px] overflow-y-scroll shadow-lg">
             <table className="w-full text-left text-sm text-gray-400">
               <thead className="bg-[#12151b] text-xs font-bold uppercase text-white">
                 <tr>
@@ -353,7 +353,7 @@ export default function Warehouse() {
                         <td className="py-4 px-6 ">{products.category}</td>
                         <td className="py-4 px-6">{products.sku}</td>
                         <td className="py-4 px-6">{products.stock}</td>
-                        <td className="py-4 px-6">{products.price}</td>
+                        <td className="py-4 px-6">${products.price}</td>
                         <td className="py-4 px-6">{products.rating}</td>
 
                         <td className="py-4 px-6 text-right">

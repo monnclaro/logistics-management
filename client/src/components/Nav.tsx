@@ -10,18 +10,51 @@ import {
   Square3Stack3DIcon,
   Squares2X2Icon,
   UserCircleIcon,
+  EnvelopeIcon,
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
   ClipboardDocumentListIcon,
 } from "@heroicons/react/24/outline";
 
 const NotificationsPopover = () => (
   <Popover.Portal>
-    <Popover.Content className="mr-14 h-[230px] w-[260px] border border-zinc-800 bg-[#161b22] text-white shadow-md">
-      <div className="bg-[#12151b]">
-        <p className="p-4 font-bold">Notifications</p>
+    <Popover.Content className="mr-14 h-[270px] w-[260px] rounded-md border border-gray-800 bg-white text-black shadow-md">
+      <div className="flex justify-between ">
+        <p className="p-4 text-sm">Notifications</p>
+        <p className="p-4 text-sm font-bold text-[#1f61fb]">3</p>
       </div>
-      <p className="align-center mt-6 p-12 pt-6 text-center text-sm">
-        You dont have any notification at the moment.
-      </p>
+
+      <div className="mx-4 flex h-[1px] w-[220px] bg-gray-200 pl-4"></div>
+
+      <div className="flex flex-col">
+        <div className="flex flex-row px-4 py-3">
+          <div className="pr-4">
+            <CheckCircleIcon className="h-5 w-5 text-[#1f61fb]" />
+          </div>
+          <p className="text-xs">Your password has been succesfully changed.</p>
+        </div>
+        <div className="mx-6 flex h-[1px] w-[200px] bg-gray-200 pl-4"></div>
+        <div className="flex flex-row px-4 py-3">
+          <div className="pr-4">
+            <EnvelopeIcon className="h-5 w-5 text-[#1f61fb]" />
+          </div>
+          <p className="text-xs">A report has been sent to your email.</p>
+        </div>
+        <div className="mx-6 flex h-[1px] w-[200px] bg-gray-200 pl-4"></div>
+        <div className="flex flex-row px-4 py-3">
+          <div className="pr-4">
+            <ExclamationTriangleIcon className="h-5 w-5 text-[#1f61fb]" />
+          </div>
+          <p className="text-xs">Low inventory level at the Hangar 34.</p>
+        </div>
+      </div>
+      <div className="mx-6 flex h-[1px] w-[200px] bg-gray-200 pl-4"></div>
+      <div>
+        <p className="cursor-pointer p-3 text-center text-sm text-[#1f61fb]">
+          See more
+        </p>
+      </div>
+
       <Popover.Close
         className="PopoverClose"
         aria-label="Close"
@@ -61,7 +94,7 @@ export function Nav() {
         <div className=" px-3 py-5 text-white">
           <div className="flex items-center gap-1 align-middle">
             <UserCircleIcon className="h-5 w-5 text-white hover:text-[#c7c7c7]" />
-            <p className="text-sm font-bold">Vivienne M.</p>
+            <p className="text-sm font-bold">Augusto M.</p>
             <ChevronDownIcon className="h-5 w-5 cursor-pointer text-white hover:text-[#c7c7c7]" />
           </div>
           <p className="pt-1 text-xs text-gray-200">Logistics Manager</p>
